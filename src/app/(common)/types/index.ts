@@ -26,8 +26,8 @@ export type HeaderDataType = {
 };
 
 export type AartiDataType = {
-  id: number;
+  id: string;
   title: string;
   image: string;
-  type: string;
+  type: Array<string>;
 };

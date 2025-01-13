@@ -13,7 +13,7 @@ const AartiCardList = () => {
     if (type === "All") {
       setAarti(aartiData);
     } else {
-      const filteredAarti = aartiData.filter((item) => item.type === type);
+      const filteredAarti = aartiData.filter((item) => item.id === type);
       setAarti(filteredAarti);
     }
   };
@@ -21,13 +21,15 @@ const AartiCardList = () => {
   return (
     <Container className="z-20">
       <div className="mb-8 flex justify-center flex-wrap items-center gap-4">
-        {featuredData.map((button) => (
-          <Button
-            text={button.text}
-            onClick={() => filterAarti(button.type)}
-            key={button.id}
-          />
-        ))}
+        {featuredData.map((button) => {
+          return (
+            <Button
+              text={button.text}
+              onClick={() => filterAarti(button.type)}
+              key={button.id}
+            />
+          );
+        })}
       </div>
 
       <div className="grid w-full grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-6">
