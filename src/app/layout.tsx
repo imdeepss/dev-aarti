@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 import "@/styles/globals.css";
 import { Metadata } from "next";
 import { Footer, Header } from "@/_components/layouts";
+import { Analytics } from "@vercel/analytics/next";
 
 // Google Fonts setup
 const amita = Amita({
@@ -34,7 +35,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {children}
           <Footer />
         </main>
-        <div id="modalOverlay" className="relative" />
+        <Analytics />
       </body>
     </html>
   );
