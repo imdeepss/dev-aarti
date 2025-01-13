@@ -1,35 +1,7 @@
 import Link from "next/link";
 import SearchInput from "../SearchInput";
 import Container from "../Container";
-
-export type HeaderData = {
-  id: number;
-  text: string;
-  href: string;
-};
-
-const headerData: HeaderData[] = [
-  {
-    id: 1,
-    text: "Home",
-    href: "/",
-  },
-  {
-    id: 2,
-    text: "About Us",
-    href: "/about",
-  },
-  {
-    id: 3,
-    text: "Contact",
-    href: "/contact",
-  },
-  {
-    id: 4,
-    text: "Policies",
-    href: "/policies",
-  },
-];
+import { headerData } from "@/app/(common)/data";
 
 export default function Header() {
   return (
@@ -45,7 +17,7 @@ export default function Header() {
             {headerData.map((singleHeader) => {
               return (
                 <Link
-                  href="/"
+                  href={singleHeader.href}
                   className="group relative mr-5 hover:text-tertiary"
                   key={singleHeader.id}
                 >

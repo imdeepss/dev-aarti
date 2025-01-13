@@ -34,6 +34,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {children}
           <Footer />
         </main>
+        <div id="modalOverlay" className="relative" />
       </body>
     </html>
   );
