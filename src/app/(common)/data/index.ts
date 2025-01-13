@@ -68,7 +68,7 @@ const aartiData: AartiDataType[] = [
   {
     id: 4,
     title: "माँ सरस्वती",
-    image: "/images/gods/saraswati.png",
+    image: "/images/gods/saraswati-ji.png",
     type: "saraswatiJi",
   },
   {
