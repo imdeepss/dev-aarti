@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define font variables */
+:root {
+  --primary: #ffffff;
+  --secondary: #000000;
+  --tertiary: #121212;
+
+  --font-amita: 'Amita', sans-serif;
+  --font-gotu: 'Gotu', sans-serif;
+}
