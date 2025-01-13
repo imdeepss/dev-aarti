@@ -10,7 +10,7 @@ export type HeaderData = {
   href: string;
 };
 
-export type AartiCard = {
+export type AartiType = {
   id: number;
   title: string;
   image: string;
@@ -63,7 +63,7 @@ const headerData: HeaderData[] = [
   },
 ];
 
-const aartiCard: AartiCard[] = [
+const aartiData: AartiType[] = [
   {
     id: 1,
     title: "गणेश जी",
@@ -131,4 +131,4 @@ const aartiCard: AartiCard[] = [
   },
 ];
 
-export { headerData, buttonData, aartiCard };
+export { headerData, buttonData, aartiData };

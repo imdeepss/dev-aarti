@@ -1,10 +1,10 @@
-import { AartiSection, Banner, Contact, Testimonial } from './_components';
+import { AartiCardList, Banner, Contact, Testimonial } from "./_components";
 
 export default function HomePage() {
   return (
     <>
       <Banner />
-      <AartiSection />
+      <AartiCardList />
       <Testimonial />
       <Contact />
     </>
