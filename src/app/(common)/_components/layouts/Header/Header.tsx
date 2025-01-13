@@ -1,7 +1,7 @@
 import Link from "next/link";
 import SearchInput from "../SearchInput";
 import Container from "../Container";
-import { headerData } from "@/app/(home)/data";
+import { headerData } from "@/app/(common)/data";
 
 export default function Header() {
   return (

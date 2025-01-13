@@ -21,6 +21,7 @@
     "paths": {
       "@/_components/*": ["./src/app/(common)/_components/*"],
       "@/type/*": ["./src/app/(common)/types/*"],
+      "@/data/*": ["./src/app/(common)/data/*"],
       "@/*": ["./src/*"]
     }
   },

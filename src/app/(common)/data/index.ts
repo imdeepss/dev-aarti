@@ -1,23 +1,6 @@
-export type ButtonData = {
-  id: number;
-  text: string;
-  type: string;
-};
+import { featuredButtonType, HeaderDataType, AartiDataType } from "../types";
 
-export type HeaderData = {
-  id: number;
-  text: string;
-  href: string;
-};
-
-export type AartiType = {
-  id: number;
-  title: string;
-  image: string;
-  type: string;
-};
-
-const buttonData: ButtonData[] = [
+const featuredData: featuredButtonType[] = [
   {
     id: 1,
     text: "गणेश जी",
@@ -40,7 +23,7 @@ const buttonData: ButtonData[] = [
   },
 ];
 
-const headerData: HeaderData[] = [
+const headerData: HeaderDataType[] = [
   {
     id: 1,
     text: "Home",
@@ -63,7 +46,7 @@ const headerData: HeaderData[] = [
   },
 ];
 
-const aartiData: AartiType[] = [
+const aartiData: AartiDataType[] = [
   {
     id: 1,
     title: "गणेश जी",
@@ -131,4 +114,4 @@ const aartiData: AartiType[] = [
   },
 ];
 
-export { headerData, buttonData, aartiData };
+export { featuredData, headerData, aartiData };

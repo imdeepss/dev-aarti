@@ -2,11 +2,12 @@
 
 import { Button, Container } from "@/_components/layouts";
 import { useState } from "react";
-import { aartiData, AartiType, buttonData } from "../../data";
+import { aartiData, featuredData } from "@/data/index";
 import AartiCard from "../AartiCard/AartiCard";
+import { AartiDataType } from "@/type/index";
 
 const AartiCardList = () => {
-  const [aarti, setAarti] = useState<AartiType[]>(aartiData);
+  const [aarti, setAarti] = useState<AartiDataType[]>(aartiData);
 
   const filterAarti = (type: string) => {
     if (type === "All") {
@@ -20,7 +21,7 @@ const AartiCardList = () => {
   return (
     <Container className="z-20">
       <div className="mb-8 flex justify-center flex-wrap items-center gap-4">
-        {buttonData.map((button) => (
+        {featuredData.map((button) => (
           <Button
             text={button.text}
             onClick={() => filterAarti(button.type)}

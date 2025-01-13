@@ -1,11 +1,11 @@
 import { CloseIcon } from "@/_components/icon";
 import { Button } from "@/_components/layouts";
+import { AartiDataType } from "@/type/index";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { useState } from "react";
-import { AartiType } from "../../data";
 
-const AartiCard = ({ id, title, image, type }: AartiType) => {
+const AartiCard = ({ id, title, image, type }: AartiDataType) => {
   const [isOpen, setOpen] = useState<boolean>(false);
 
   const handleModalToggle = () => {
