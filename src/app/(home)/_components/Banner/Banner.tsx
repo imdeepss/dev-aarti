@@ -1,4 +1,4 @@
-import { Container } from '@/_components/layouts';
+import { Container } from "@/_components/layouts";
 
 const Banner = () => {
   return (
@@ -9,7 +9,7 @@ const Banner = () => {
         </h1>
         <div className="bg-secondary my-4 inline-block h-1 w-16 rounded mx-auto" />
         <p className="mx-auto text-base text-tertiary font-gotu">
-          यहां विभिन्न देवी-देवताओं की आर्टियाँ हैं, जो आपके जीवन में शांति और
+          यहां विभिन्न देवी-देवताओं की आरती हैं, जो आपके जीवन में शांति और
           आशीर्वाद लाने के लिए समर्पित हैं। इन भजनों के माध्यम से आप अपनी आत्मा
           को शुद्ध कर सकते हैं और दिव्यता का अनुभव कर सकते हैं।
         </p>

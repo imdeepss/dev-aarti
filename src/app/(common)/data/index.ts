@@ -1,4 +1,9 @@
-import { featuredButtonType, HeaderDataType, AartiDataType } from "../types";
+import {
+  featuredButtonType,
+  HeaderDataType,
+  AartiDataType,
+  TestimonialDataType,
+} from "../types";
 
 const featuredData: featuredButtonType[] = [
   {
@@ -26,22 +31,22 @@ const featuredData: featuredButtonType[] = [
 const headerData: HeaderDataType[] = [
   {
     id: 1,
-    text: "Home",
+    text: "होम",
     href: "/  ",
   },
   {
     id: 2,
-    text: "About Us",
+    text: "हमारे बारे में",
     href: "/about",
   },
   {
     id: 3,
-    text: "Contact",
+    text: "संपर्क",
     href: "/contact",
   },
   {
     id: 4,
-    text: "Policies",
+    text: "नीतियां",
     href: "/policies",
   },
 ];
@@ -208,11 +213,87 @@ const aartiData: AartiDataType[] = [
       "vandana",
       "stotra",
     ],
-    
+  },
+];
+const testimonials: TestimonialDataType[] = [
+  {
+    quote: `"न हि देहभृता शक्यं त्यक्तुं कर्माण्यशेषतः। यस्तु कर्मफलत्यागी स त्यागीतः सदा सुखी।"`,
+    source: "(महाभारत, शांति पर्व 264.27)",
+    author: "भगवान श्री कृष्ण",
+  },
+  {
+    quote: `"कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।"`,
+    source: "(भगवद गीता 2.47)",
+    author: "भगवान श्री कृष्ण",
+  },
+  {
+    quote: `"यदा यदा हि धर्मस्य ग्लानिर्भवति भारत। अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम्।"`,
+    source: "(भगवद गीता 4.7)",
+    author: "भगवान श्री कृष्ण",
+  },
+  {
+    quote: `"सुख-दुःखे समे कृत्वा लाभालाभौ जयाजयौ। ततो युद्धाय युज्यस्व नैवं पापमवाप्स्यसि।"`,
+    source: "(भगवद गीता 2.38)",
+    author: "भगवान श्री कृष्ण",
+  },
+  {
+    quote: `"अहिंसा परमो धर्मः।"`,
+    source: "(महाभारत, अनुशासन पर्व 116.38-39)",
+    author: "महर्षि वेदव्यास",
+  },
+  {
+    quote: `"जो हुआ, वह अच्छे के लिए हुआ। जो हो रहा है, वह अच्छे के लिए हो रहा है। जो होगा, वह भी अच्छे के लिए होगा।"`,
+    source: "(भगवद गीता 2.27)",
+    author: "भगवान श्री कृष्ण",
+  },
+  {
+    quote: `"मनुष्य अपने विश्वास से निर्मित होता है। जैसा वह विश्वास करता है, वैसा वह बन जाता है।"`,
+    source: "(भगवद गीता 17.3)",
+    author: "भगवान श्री कृष्ण",
+  },
+  {
+    quote: `"उद्धरेदात्मनात्मानं नात्मानमवसादयेत्। आत्मैव ह्यात्मनो बन्धुरात्मैव रिपुरात्मनः।"`,
+    source: "(भगवद गीता 6.5)",
+    author: "भगवान श्री कृष्ण",
+  },
+  {
+    quote: `"प्रकृतिं स्वामवष्टभ्य विसृजामि पुनः पुनः।"`,
+    source: "(भगवद गीता 9.8)",
+    author: "भगवान श्री कृष्ण",
+  },
+  {
+    quote: `"अर्जुन, तेरा कर्तव्य सिर्फ कर्म करना है। परिणाम तेरे हाथ में नहीं है।"`,
+    source: "(भगवद गीता 2.47 - भावार्थ)",
+    author: "भगवान श्री कृष्ण",
+  },
+  {
+    quote: `"ज्ञानेन तु तदज्ञानं येषां नाशितमात्मनः। तेषामादित्यवज्ज्ञानं प्रकाशयति तत्परम्।"`,
+    source: "(भगवद गीता 5.16)",
+    author: "भगवान श्री कृष्ण",
+  },
+  {
+    quote: `"समोऽहं सर्वभूतेषु न मे द्वेष्योऽस्ति न प्रियः।"`,
+    source: "(भगवद गीता 9.29)",
+    author: "भगवान श्री कृष्ण",
+  },
+  {
+    quote: `"श्रेयान्स्वधर्मो विगुणः परधर्मात्स्वनुष्ठितात्।"`,
+    source: "(भगवद गीता 3.35)",
+    author: "भगवान श्री कृष्ण",
+  },
+  {
+    quote: `"क्षत्रियस्य न दैन्यं धर्मः।"`,
+    source: "(महाभारत)",
+    author: "भगवान श्री कृष्ण",
+  },
+  {
+    quote: `"तस्मात्सर्वेषु कालेषु मामनुस्मर युध्य च।"`,
+    source: "(भगवद गीता 8.7)",
+    author: "भगवान श्री कृष्ण",
   },
 ];
 
-export { featuredData, headerData, aartiData };
+export { featuredData, headerData, aartiData, testimonials };
 
 // type: [
 //   "aarti", "chalisha", "mantra", "slok", "baan", "bhajan", "kirtan",

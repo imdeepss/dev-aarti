@@ -8,6 +8,12 @@
   --secondary: #000000;
   --tertiary: #121212;
 
-  --font-amita: 'Amita', sans-serif;
-  --font-gotu: 'Gotu', sans-serif;
+  --font-amita: "Amita", sans-serif;
+  --font-gotu: "Gotu", sans-serif;
+}
+
+.swiper-pagination-bullet {
+  background-color: black !important;
+  width: 10px !important;
+  height: 10px !important;
 }

@@ -31,3 +31,9 @@ export type AartiDataType = {
   image: string;
   type: Array<string>;
 };
+
+export type TestimonialDataType = {
+  quote: string;
+  source: string;
+  author: string;
+};
