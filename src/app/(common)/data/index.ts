@@ -178,16 +178,37 @@ const aartiData: AartiDataType[] = [
     ],
   },
   {
-    id: 11,
+    id: "maakaliji",
     title: "माँ काली",
     image: "/images/gods/kali.png",
-    type: "kaliJi",
+    type: [
+      "aarti",
+      "chalisha",
+      "mantra",
+      "slok",
+      "baan",
+      "bhajan",
+      "kirtan",
+      "vandana",
+      "stotra",
+    ],
   },
   {
-    id: 12,
+    id: "shaniji",
     title: "शनी जी",
     image: "/images/gods/shani.png",
-    type: "shaniji",
+    type: [
+      "aarti",
+      "chalisha",
+      "mantra",
+      "slok",
+      "baan",
+      "bhajan",
+      "kirtan",
+      "vandana",
+      "stotra",
+    ],
+    
   },
 ];
 
