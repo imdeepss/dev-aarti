@@ -80,37 +80,44 @@ const aartiData: AartiDataType[] = [
   {
     id: 6,
     title: "कृष्ण जी",
-
     image: "/images/gods/krishna.png",
     type: "krishnaJi",
   },
   {
     id: 7,
     title: "राम जी",
-
     image: "/images/gods/ram.png",
     type: "ramJi",
   },
   {
     id: 8,
     title: "सूर्य जी",
-
     image: "/images/gods/surya.png",
     type: "suryaJi",
   },
   {
     id: 9,
     title: "हनुमान जी",
-
     image: "/images/gods/hanuman.png",
     type: "hanumanJi",
   },
   {
     id: 10,
     title: "विष्णु जी",
-
     image: "/images/gods/vishnu.png",
     type: "vishnuJi",
+  },
+  {
+    id: 11,
+    title: "माँ काली",
+    image: "/images/gods/kali.png",
+    type: "kaliJi",
+  },
+  {
+    id: 12,
+    title: "शनी जी",
+    image: "/images/gods/shani.png",
+    type: "shaniji",
   },
 ];
 

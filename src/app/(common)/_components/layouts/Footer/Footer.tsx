@@ -22,7 +22,7 @@ export default function Footer() {
             </a>
           </p>
           <span className="mt-4 inline-flex justify-center text-[#656565] sm:ml-auto sm:mt-0 sm:justify-start font-amita font-bold">
-            ||हर हर महादेव||
+            ||धर्मो रक्षति रक्षितः||
           </span>
         </div>
       </Container>
