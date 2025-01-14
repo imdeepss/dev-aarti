@@ -1,8 +1,8 @@
 import { CloseIcon } from "@/_components/icon";
-import { Button } from "@/_components/layouts";
 import { AartiDataType } from "@/type/index";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 const AartiCard = ({ id, title, image, type }: AartiDataType) => {
@@ -10,11 +10,6 @@ const AartiCard = ({ id, title, image, type }: AartiDataType) => {
 
   const handleModalToggle = () => {
     setOpen((prev) => !prev);
-  };
-
-  const handleButtonClick = (action: string) => {
-    console.log({ action, type, id });
-    setOpen(false);
   };
 
   return (
@@ -37,8 +32,8 @@ const AartiCard = ({ id, title, image, type }: AartiDataType) => {
           <Dialog.Overlay className="fixed inset-0 bg-white opacity-50" />
           <Dialog.Content className="fixed inset-0 flex items-center justify-center z-50 backdrop-blur-2xl md:px-0 px-5">
             <div className="w-full max-w-xl bg-white rounded-lg relative shadow-2xl md:px-0 px-5">
-              <div className="flex w-full">
-                <div className="w-2/5">
+              <div className="flex md:flex-row flex-col w-full">
+                <div className="md:w-2/5 w-full">
                   <Image
                     src={image}
                     alt={title}
@@ -47,21 +42,30 @@ const AartiCard = ({ id, title, image, type }: AartiDataType) => {
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <div className="p-10 w-3/5">
+                <div className="p-5 md:w-3/5 w-full">
                   {title && (
                     <Dialog.Title className="text-xl font-bold mb-5">
                       {title}
                     </Dialog.Title>
                   )}
-                  <div className="flex items-center gap-4">
-                    <Button
-                      text="Aarti"
-                      onClick={() => handleButtonClick("Aarti")}
-                    />
-                    <Button
-                      text="Mantra"
-                      onClick={() => handleButtonClick("Mantra")}
-                    />
+                  <div className="flex flex-wrap items-center gap-4 w-full">
+                    {type.map((_, i) => {
+                      return (
+                        <Link
+                          href={`${_}/${id}`.toLowerCase()}
+                          key={i}
+                          className="group relative inline-block px-4 py-2 font-medium"
+                        >
+                          <span
+                            className={`duration-400 absolute inset-0 h-full w-full translate-x-1 translate-y-1 transform bg-secondary transition ease-out group-hover:-translate-x-0 group-hover:-translate-y-0`}
+                          ></span>
+                          <span
+                            className={`group-hover:bg-secondary-50 absolute inset-0 h-full w-full border border-secondary bg-primary`}
+                          ></span>
+                          <span className={`relative text-secondary`}>{_}</span>
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
