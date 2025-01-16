@@ -37,3 +37,15 @@ export type TestimonialDataType = {
   source: string;
   author: string;
 };
+
+type contentType = {
+  type: string;
+  content: string;
+};
+
+export type godBooksType = {
+  id: string;
+  title: string;
+  type: string;
+  content: contentType[];
+};

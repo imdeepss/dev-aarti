@@ -4,6 +4,7 @@ import {
   AartiDataType,
   TestimonialDataType,
 } from "../types";
+import godBooksType from "./godBooks";
 
 const featuredData: featuredButtonType[] = [
   {
@@ -293,7 +294,7 @@ const testimonials: TestimonialDataType[] = [
   },
 ];
 
-export { featuredData, headerData, aartiData, testimonials };
+export { featuredData, headerData, aartiData, testimonials, godBooksType };
 
 // type: [
 //   "aarti", "chalisha", "mantra", "slok", "baan", "bhajan", "kirtan",
