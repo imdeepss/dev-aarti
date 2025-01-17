@@ -9,7 +9,7 @@ export default function Header() {
       <Container>
         <div className="flex flex-col flex-wrap items-center justify-between md:flex-row gap-2">
           <Link href="/" aria-label="Go to Home">
-            <span className="ml-3 text-xl lg:hidden xl:block font-amita font-bold">
+            <span className="ml-3 text-xl lg:hidden xl:block font-amita font-bold text-secondary ">
               देव आरती संग्रह
             </span>
           </Link>
@@ -18,7 +18,7 @@ export default function Header() {
               return (
                 <Link
                   href={singleHeader.href}
-                  className="group relative mr-5 hover:text-tertiary"
+                  className="group relative mr-5 hover:text-secondary"
                   key={singleHeader.id}
                 >
                   <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-secondary transition-all group-hover:w-full"></span>

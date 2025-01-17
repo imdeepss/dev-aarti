@@ -6,7 +6,7 @@ export default function Footer() {
       <Container>
         <div className="flex flex-col items-center sm:flex-row">
           <a className="title-font flex items-center justify-center font-medium text-secondary-900 md:justify-start">
-            <span className="ml-3 text-xl font-amita font-bold">
+            <span className="ml-3 text-xl font-amita font-bold text-secondary">
               देव आरती संग्रह
             </span>
           </a>
@@ -21,7 +21,7 @@ export default function Footer() {
               @imdeepss,@imsidd02
             </a>
           </p>
-          <span className="mt-4 inline-flex justify-center text-[#656565] sm:ml-auto sm:mt-0 sm:justify-start font-amita font-bold">
+          <span className="mt-4 inline-flex justify-center text-[#656565] sm:ml-auto sm:mt-0 sm:justify-start font-amita font-bold text-secondary">
             ||धर्मो रक्षति रक्षितः||
           </span>
         </div>
