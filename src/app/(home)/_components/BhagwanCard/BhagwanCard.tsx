@@ -1,11 +1,11 @@
 import { CloseIcon } from "@/_components/icon";
-import { AartiDataType } from "@/type/index";
+import { BhagwanType } from "@/app/type";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-const AartiCard = ({ id, title, image, type }: AartiDataType) => {
+const BhagwanCard = ({ title, slug, image, type }: BhagwanType) => {
   const [isOpen, setOpen] = useState<boolean>(false);
 
   const handleModalToggle = () => {
@@ -17,8 +17,8 @@ const AartiCard = ({ id, title, image, type }: AartiDataType) => {
       <div className="cursor-pointer rounded-lg border border-secondary p-4 text-center duration-500 ease-in-out hover:scale-110 flex flex-col gap-1 justify-center items-center bg-primary">
         <button onClick={handleModalToggle}>
           <Image
-            src={image}
-            alt={title}
+            src={image.image}
+            alt={image.alt || title}
             width={200}
             height={200}
             className="flex-1"
@@ -35,8 +35,8 @@ const AartiCard = ({ id, title, image, type }: AartiDataType) => {
               <div className="flex md:flex-row flex-col w-full">
                 <div className="md:w-2/5 w-full">
                   <Image
-                    src={image}
-                    alt={title}
+                    src={image.image}
+                    alt={image.alt || title}
                     width={200}
                     height={200}
                     className="h-full w-full object-cover"
@@ -49,11 +49,16 @@ const AartiCard = ({ id, title, image, type }: AartiDataType) => {
                     </Dialog.Title>
                   )}
                   <div className="flex flex-wrap items-center gap-4 w-full">
-                    {type.map((_, i) => {
+                    {type.map((item) => {
+                      const formattedSlug = slug?.current?.toLowerCase();
+                      const formattedBookTypeName =
+                        item.bookTypeName.toLowerCase();
+
+                      const href = `/${formattedSlug}-${formattedBookTypeName}`;
                       return (
                         <Link
-                          href={`${_}/${id}`.toLowerCase()}
-                          key={i}
+                          href={href}
+                          key={item._id}
                           className="group relative inline-block px-4 py-2 font-medium"
                         >
                           <span
@@ -62,7 +67,9 @@ const AartiCard = ({ id, title, image, type }: AartiDataType) => {
                           <span
                             className={`group-hover:bg-secondary-50 absolute inset-0 h-full w-full border border-secondary bg-primary`}
                           ></span>
-                          <span className={`relative text-secondary`}>{_}</span>
+                          <span className={`relative text-secondary`}>
+                            {item.bookTypeName}
+                          </span>{" "}
                         </Link>
                       );
                     })}
@@ -83,4 +90,4 @@ const AartiCard = ({ id, title, image, type }: AartiDataType) => {
   );
 };
 
-export default AartiCard;
+export default BhagwanCard;

@@ -1,20 +1,25 @@
 "use client";
 
 import { Button, Container } from "@/_components/layouts";
-import { useState } from "react";
-import { aartiData, featuredData } from "@/data/index";
-import AartiCard from "../AartiCard/AartiCard";
-import { AartiDataType } from "@/type/index";
+import { featuredData } from "@/data/index";
+import BhagwanCard from "../BhagwanCard/BhagwanCard";
 
-const AartiCardList = () => {
-  const [aarti, setAarti] = useState<AartiDataType[]>(aartiData);
+import { BhagwanType } from "@/app/type";
+import { useState } from "react";
+
+type BhagwanListProps = {
+  bhagwanList: BhagwanType[];
+};
+
+const BhagwanList: React.FC<BhagwanListProps> = ({ bhagwanList }) => {
+  const [data, setData] = useState<BhagwanType[]>(bhagwanList);
 
   const filterAarti = (type: string) => {
     if (type === "All") {
-      setAarti(aartiData);
+      setData(data);
     } else {
-      const filteredAarti = aartiData.filter((item) => item.id === type);
-      setAarti(filteredAarti);
+      const filteredAarti = data.filter((item) => item.title === type);
+      setData(filteredAarti);
     }
   };
 
@@ -33,12 +38,12 @@ const AartiCardList = () => {
       </div>
 
       <div className="grid w-full grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-6">
-        {aarti.map((item, i) => (
-          <AartiCard {...item} key={i} />
+        {bhagwanList.map((item: BhagwanType) => (
+          <BhagwanCard {...item} key={item._id} />
         ))}
       </div>
     </Container>
   );
 };
 
-export default AartiCardList;
+export default BhagwanList;

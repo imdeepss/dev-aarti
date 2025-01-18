@@ -1,10 +1,13 @@
-import { AartiCardList, Banner, Testimonial } from "./_components";
+import { BhagwanList, Banner, Testimonial } from "./_components";
+import { getBhagwanList } from "@/sanity/sanity.query";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const bhagwanList = await getBhagwanList();
+
   return (
     <>
       <Banner />
-      <AartiCardList />
+      <BhagwanList bhagwanList={bhagwanList} />
       <Testimonial />
     </>
   );

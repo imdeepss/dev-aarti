@@ -10,12 +10,12 @@ const featuredData: featuredButtonType[] = [
   {
     id: 1,
     text: "गणेश जी",
-    type: "ganeshJi",
+    type: "Ganesh Ji",
   },
   {
     id: 2,
     text: "हनुमान जी",
-    type: "hanumanJi",
+    type: "Hanuman Ji",
   },
   {
     id: 3,
