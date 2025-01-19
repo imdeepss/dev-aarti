@@ -16,9 +16,11 @@ const BhagwanList: React.FC<BhagwanListProps> = ({ bhagwanList }) => {
 
   const filterAarti = (type: string) => {
     if (type === "All") {
-      setData(data);
+      setData(bhagwanList);
     } else {
-      const filteredAarti = data.filter((item) => item.title === type);
+      const filteredAarti = bhagwanList.filter(
+        (item) => item.slug?.current === type
+      );
       setData(filteredAarti);
     }
   };
@@ -38,7 +40,7 @@ const BhagwanList: React.FC<BhagwanListProps> = ({ bhagwanList }) => {
       </div>
 
       <div className="grid w-full grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-6">
-        {bhagwanList.map((item: BhagwanType) => (
+        {data.map((item: BhagwanType) => (
           <BhagwanCard {...item} key={item._id} />
         ))}
       </div>
