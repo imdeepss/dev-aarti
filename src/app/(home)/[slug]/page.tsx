@@ -3,24 +3,26 @@ import { notFound } from "next/navigation";
 import { ContentSection } from "./_components";
 import type { Metadata, ResolvingMetadata } from "next";
 
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
 export async function generateMetadata(
-  {
-    params,
-  }: Readonly<{
-    params: { slug: string };
-  }>,
+  { params }: Props,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const slug = (await params).slug;
+  const resolvedParams = await params;
+  const slug = resolvedParams.slug;
 
   const post = await getPostBySlug(slug);
 
-  if (post.seo) {
+  if (post?.seo) {
     return {
       title: post.seo.seoTitle,
       description: post.seo.seoDescription,
       openGraph: {
-        images: post.seo.seoImage?.assest?._ref,
+        images: post.seo.seoImage?.asset?._ref,
       },
     };
   }
@@ -32,14 +34,9 @@ export async function generateMetadata(
   };
 }
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const slug = (await params).slug;
-
-  const post = await getPostBySlug(slug);
+export default async function Page({ params }: Props) {
+  const resolvedParams = await params;
+  const post = await getPostBySlug(resolvedParams.slug);
 
   if (!post) {
     notFound();
