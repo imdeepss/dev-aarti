@@ -26,7 +26,7 @@ const BhagwanList: React.FC<BhagwanListProps> = ({ bhagwanList }) => {
   };
 
   return (
-    <Container className="z-20">
+    <Container className="">
       <div className="mb-8 flex justify-center flex-wrap items-center gap-4">
         {featuredData.map((button) => {
           return (

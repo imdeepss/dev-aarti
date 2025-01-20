@@ -6,6 +6,7 @@ import Container from "../Container";
 import { headerData } from "@/app/(common)/data";
 import { useState, useEffect, useRef } from "react";
 import { BreadcrumbIcon, CloseIcon } from "@/_components/icon";
+import useLockBodyScroll from "@/hook/useLockBodyScroll";
 
 export default function Header() {
   const [collapseMenu, setCollapseMenu] = useState<boolean>(false);
@@ -25,6 +26,8 @@ export default function Header() {
     };
   }, []);
 
+  useLockBodyScroll(collapseMenu);
+
   const handleClick = () => {
     setCollapseMenu(!collapseMenu);
   };
@@ -33,7 +36,7 @@ export default function Header() {
     <header className="border-b border-secondary p-5">
       {collapseMenu && (
         <div
-          className="fixed w-full h-full bg-secondary opacity-30 z-10 top-0 left-0"
+          className="fixed w-full h-[100svh] bg-secondary opacity-30 z-10 top-0 left-0"
           role="button"
           aria-label="Close menu"
           onClick={handleClick}
@@ -51,7 +54,7 @@ export default function Header() {
           <nav
             ref={menuRef}
             className={`lg:flex flex-wrap items-center justify-center text-base text-tertiary gap-5 
-              ${collapseMenu ? "fixed w-3/4 z-20 top-0 left-0 duration-500 ease-in-out flex flex-col bg-primary h-full p-10 !items-start !justify-start shadow-2xl overflow-hidden" : "hidden"}`}
+              ${collapseMenu ? "fixed w-3/4 z-20 top-0 left-0 duration-500 ease-in-out flex flex-col bg-primary h-[100svh] p-10 !items-start !justify-start shadow-2xl !overflow-hidden" : "hidden"}`}
             aria-label="Main navigation"
           >
             {headerData.map((singleHeader) => (
