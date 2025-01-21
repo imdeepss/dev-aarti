@@ -25,6 +25,7 @@ export const metadata: Metadata = {
   title: "देव आरती संग्रह | भक्ति गीत और आरतियाँ",
   description:
     "देव आरती संगरह में हिन्दू भक्ति गीतों और आरतियों का संपूर्ण संग्रह पाएं। आध्यात्मिकता, श्रद्धा और दैनिक पूजा से जुड़ी प्रार्थनाओं को खोजें।",
+  metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}`),
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL}`,
   },

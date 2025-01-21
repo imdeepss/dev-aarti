@@ -21,6 +21,7 @@ export async function generateMetadata(
     return {
       title: post.seo.seoTitle,
       description: post.seo.seoDescription,
+      metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}/${slug}`),
       openGraph: {
         images: post.seo.seoImage?.asset?._ref,
       },
@@ -34,6 +35,7 @@ export async function generateMetadata(
     title: "देव आरती संग्रह | हिन्दू भक्ति गीतों और प्रार्थनाओं का संग्रह",
     description:
       "देव आरती संगरह में हिन्दू भक्ति गीतों और आरतियों का संपूर्ण संग्रह पाएं। आध्यात्मिकता, श्रद्धा और दैनिक पूजा से जुड़ी प्रार्थनाओं को खोजें।",
+    metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}/${slug}`),
     alternates: {
       canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/${slug}`,
     },
