@@ -5,6 +5,7 @@ import "@/styles/globals.css";
 import { Metadata } from "next";
 import { Footer, Header } from "@/_components/layouts";
 import { Analytics } from "@vercel/analytics/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 // Google Fonts setup
 const amita = Amita({
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <Footer />
         </main>
         <Analytics />
+        <GoogleAnalytics gaId={process.env.GA_TAG ?? "G-4FHG2030NP"} />
       </body>
     </html>
   );
