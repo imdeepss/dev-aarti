@@ -1,4 +1,5 @@
 import { Container } from "@/_components/layouts";
+import Image from "next/image";
 import React from "react";
 
 const page = () => {
@@ -31,8 +32,10 @@ const page = () => {
               भक्ति के माध्यम से भक्तों को उनके आध्यात्मिक जड़ों से जोड़ने का
               प्रयास करते हैं।
             </p>
-            <img
-              src="./images/gods/hindu-temple-ponda.jpg"
+            <Image
+              width="1000"
+              height="1000"
+              src="/images/gods/hindu-temple-ponda.jpg"
               alt="A photo of a Hindu temple"
               className="w-full max-w-md h-auto rounded-lg shadow-lg"
             />
@@ -49,8 +52,10 @@ const page = () => {
               परंपराओं का अन्वेषण कर सकें, और समान विचारधारा वाले आत्माओं के
               समुदाय में जुड़ सकें।
             </p>
-            <img
-              src="./images/gods/building-silhouette.jpg"
+            <Image
+              width="1000"
+              height="1000"
+              src="/images/gods/building-silhouette.jpg"
               alt="A tranquil image of a peaceful landscape with a sunset"
               className="w-full max-w-md h-auto rounded-lg shadow-lg"
             />
@@ -65,7 +70,9 @@ const page = () => {
           <div className="flex justify-center gap-8 flex-wrap">
             {/* Team Member 1 */}
             <div className="w-40 text-center mb-8">
-              <img
+              <Image
+                width="1000"
+                height="1000"
                 src="/path-to-your-image/team-member1.jpg"
                 alt="Team Member"
                 className="w-full h-40 object-cover rounded-full shadow-lg mb-4"
@@ -77,7 +84,9 @@ const page = () => {
             </div>
             {/* Team Member 2 */}
             <div className="w-40 text-center mb-8">
-              <img
+              <Image
+                width="1000"
+                height="1000"
                 src="/path-to-your-image/team-member2.jpg"
                 alt="Team Member"
                 className="w-full h-40 object-cover rounded-full shadow-lg mb-4"
@@ -89,7 +98,9 @@ const page = () => {
             </div>
             {/* Team Member 3 */}
             <div className="w-40 text-center mb-8">
-              <img
+              <Image
+                width="1000"
+                height="1000"
                 src="/path-to-your-image/team-member3.jpg"
                 alt="Team Member"
                 className="w-full h-40 object-cover rounded-full shadow-lg mb-4"
