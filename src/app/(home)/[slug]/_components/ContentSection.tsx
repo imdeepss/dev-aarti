@@ -1,5 +1,5 @@
 import { Container } from "@/_components/layouts";
-import { PostType } from "@/app/type";
+import { PostType } from "@/type/index";
 import { PortableText, PortableTextComponents } from "next-sanity";
 import Image from "next/image";
 

@@ -1,5 +1,5 @@
 import { CloseIcon } from "@/_components/icon";
-import { BhagwanType } from "@/app/type";
+import { BhagwanType } from "@/type/index";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import Link from "next/link";
