@@ -2,6 +2,7 @@ import { getPostBySlug } from "@/sanity/sanity.query";
 import { notFound } from "next/navigation";
 import { ContentSection } from "./_components";
 import type { Metadata, ResolvingMetadata } from "next";
+import { WhatsAppShareButton } from "@/_components/layouts";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -44,11 +45,21 @@ export async function generateMetadata(
 
 export default async function Page({ params }: Props) {
   const resolvedParams = await params;
-  const post = await getPostBySlug(resolvedParams.slug);
+  const slug = resolvedParams.slug; // Correctly access the slug here
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     notFound();
   }
 
-  return <ContentSection {...post} />;
+  return (
+    <>
+      <ContentSection {...post} />
+      {/* Correctly pass slug in the URL */}
+      <WhatsAppShareButton
+        message={post.seo.seoTitle}
+        url={`${process.env.NEXT_PUBLIC_SITE_URL}/${slug}`}
+      />
+    </>
+  );
 }

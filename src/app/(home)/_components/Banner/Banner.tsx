@@ -8,7 +8,7 @@ const Banner = () => {
           आध्यात्मिक आरती का संग्रह
         </h1>
         <div className="bg-secondary my-4 inline-block h-1 w-16 rounded mx-auto" />
-        <p className="mx-auto text-base text-tertiary font-gotu">
+        <p className="mx-auto text-lg text-secondary font-gotu font-medium">
           यहां विभिन्न देवी-देवताओं की आरती हैं, जो आपके जीवन में शांति और
           आशीर्वाद लाने के लिए समर्पित हैं। इन भजनों के माध्यम से आप अपनी आत्मा
           को शुद्ध कर सकते हैं और दिव्यता का अनुभव कर सकते हैं।

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 type ButtonProps = {
   text: string;
@@ -16,7 +16,7 @@ const Button = ({ text, onClick }: ButtonProps) => {
       <span
         className={`group-hover:bg-secondary-50 absolute inset-0 h-full w-full border border-secondary bg-primary`}
       ></span>
-      <span className={`relative text-secondary`}>{text}</span>
+      <span className="relative text-secondary text-lg font-gotu">{text}</span>
     </button>
   );
 };
