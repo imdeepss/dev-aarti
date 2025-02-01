@@ -4,7 +4,7 @@ import { Button, Container } from "@/_components/layouts";
 import { featuredData } from "@/data/index";
 import BhagwanCard from "../BhagwanCard/BhagwanCard";
 
-import { BhagwanType } from "@/app/type";
+import { BhagwanType } from "@/type/index";
 import { useState } from "react";
 
 type BhagwanListProps = {

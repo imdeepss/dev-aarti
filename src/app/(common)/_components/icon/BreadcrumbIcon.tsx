@@ -1,5 +1,5 @@
+import { IconProps } from "@/type/index";
 import React from "react";
-import { IconProps } from "../../types";
 
 const BreadcrumbIcon = ({ width, height, color }: IconProps) => {
   return (

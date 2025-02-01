@@ -1,5 +1,5 @@
 import React from "react";
-import { IconProps } from "../../types";
+import { IconProps } from "@/type/index";
 
 const CloseIcon = ({ width, height, color }: IconProps) => {
   return (

@@ -1,5 +1,5 @@
 import { Container } from "@/_components/layouts";
-import { PostType } from "@/app/type";
+import { PostType } from "@/type/index";
 import { PortableText, PortableTextComponents } from "next-sanity";
 import Image from "next/image";
 
@@ -9,7 +9,7 @@ const customComponents: PortableTextComponents = {
     underline: ({ children }) => <span className="underline">{children}</span>,
   },
   block: {
-    normal: ({ children }) => <p className="my-4 text-base">{children}</p>,
+    normal: ({ children }) => <p className="my-4 text-lg">{children}</p>,
     h1: ({ children }) => (
       <h1 className="text-2xl font-bold text-secondary sm:text-3xl font-amita relative my-4">
         {children}
@@ -38,20 +38,20 @@ const customComponents: PortableTextComponents = {
 
 const ContentSection = ({ title, content, image }: PostType) => {
   return (
-    <Container className="py-20">
-      <div className="mx-auto flex w-full flex-col text-center md:w-3/4">
-        <h2 className="text-2xl font-bold text-secondary sm:text-3xl font-amita relative">
+    <Container className="py-20 relative">
+      <div className="mx-auto flex w-full flex-col md:w-3/4">
+        <h2 className="text-2xl font-bold text-secondary sm:text-3xl font-amita relative text-center">
           {title}
         </h2>
-        <div className="bg-secondary my-4 inline-block h-1 w-16 rounded mx-auto" />
+        <div className="bg-secondary my-4 inline-block h-1 w-16 rounded mx-auto text-center" />
         <Image
           src={image.image}
           alt={image.alt || title}
           width={200}
           height={200}
-          className="object-cover mb-10 mx-auto"
+          className="object-cover mb-5 mx-auto"
         />
-        <div className="mx-auto text-base text-tertiary font-gotu">
+        <div className="mx-auto text-secondary font-gotu md:text-center">
           <PortableText value={content} components={customComponents} />
         </div>
       </div>

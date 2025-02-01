@@ -1,5 +1,5 @@
-import { Button, Container } from '@/_components/layouts';
-import React from 'react';
+import { Button, Container } from "@/_components/layouts";
+import React from "react";
 
 const Contact = () => {
   return (
@@ -18,14 +18,17 @@ const Contact = () => {
         <div className="-m-2 flex flex-wrap">
           <div className="w-1/2 p-2">
             <div className="relative">
-              <label htmlFor="name" className="text-sm leading-7 text-tertiary">
+              <label
+                htmlFor="name"
+                className="text-sm leading-7 text-secondary"
+              >
                 Name
               </label>
               <input
                 type="text"
                 id="name"
                 name="name"
-                className="w-full rounded border border-tertiary bg-opacity-50 px-3 py-1 text-base leading-8 text-tertiary outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-primary focus:ring-2 focus:ring-indigo-200"
+                className="w-full rounded border border-secondary bg-opacity-50 px-3 py-1 text-base leading-8 text-secondary outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-primary focus:ring-2 focus:ring-indigo-200"
               />
             </div>
           </div>
@@ -33,7 +36,7 @@ const Contact = () => {
             <div className="relative">
               <label
                 htmlFor="email"
-                className="text-sm leading-7 text-tertiary"
+                className="text-sm leading-7 text-secondary"
               >
                 Email
               </label>
@@ -41,7 +44,7 @@ const Contact = () => {
                 type="email"
                 id="email"
                 name="email"
-                className="w-full rounded border border-tertiary bg-opacity-50 px-3 py-1 text-base leading-8 text-tertiary outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-primary focus:ring-2 focus:ring-indigo-200"
+                className="w-full rounded border border-secondary bg-opacity-50 px-3 py-1 text-base leading-8 text-secondary outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-primary focus:ring-2 focus:ring-indigo-200"
               />
             </div>
           </div>
@@ -49,14 +52,14 @@ const Contact = () => {
             <div className="relative">
               <label
                 htmlFor="message"
-                className="text-sm leading-7 text-tertiary"
+                className="text-sm leading-7 text-secondary"
               >
                 Message
               </label>
               <textarea
                 id="message"
                 name="message"
-                className="h-32 w-full resize-none rounded border border-tertiary bg-opacity-50 px-3 py-1 text-base leading-6 text-tertiary outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-primary focus:ring-2 focus:ring-indigo-200"
+                className="h-32 w-full resize-none rounded border border-secondary bg-opacity-50 px-3 py-1 text-base leading-6 text-secondary outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-primary focus:ring-2 focus:ring-indigo-200"
               ></textarea>
             </div>
           </div>

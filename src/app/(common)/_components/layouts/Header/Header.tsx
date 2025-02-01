@@ -53,14 +53,14 @@ export default function Header() {
 
           <nav
             ref={menuRef}
-            className={`lg:flex flex-wrap items-center justify-center text-base text-tertiary gap-5 
+            className={`lg:flex flex-wrap items-center justify-center text-lg font-medium text-secondary gap-5 
               ${collapseMenu ? "fixed w-3/4 z-20 top-0 left-0 duration-500 ease-in-out flex flex-col bg-primary h-[100svh] p-10 !items-start !justify-start shadow-2xl !overflow-hidden" : "hidden"}`}
             aria-label="Main navigation"
           >
             {headerData.map((singleHeader) => (
               <Link
                 href={singleHeader.href}
-                className="group relative hover:text-tertiary"
+                className="group relative hover:text-secondary"
                 key={singleHeader.id}
                 aria-label={singleHeader.text}
               >

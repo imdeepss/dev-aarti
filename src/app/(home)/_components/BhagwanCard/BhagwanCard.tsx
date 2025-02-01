@@ -1,5 +1,5 @@
 import { CloseIcon } from "@/_components/icon";
-import { BhagwanType } from "@/app/type";
+import { BhagwanType } from "@/type/index";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,10 +21,10 @@ const BhagwanCard = ({ title, slug, image, type }: BhagwanType) => {
             alt={image.alt || title}
             width={200}
             height={200}
-            className="flex-1"
+            className="aspect-square"
           />
-          <h2 className="text-lg font-bold text-secondary">{title}</h2>
         </button>
+        <h2 className="text-lg font-bold text-secondary font-gotu">{title}</h2>
       </div>
 
       <Dialog.Root open={isOpen} onOpenChange={setOpen}>
@@ -32,7 +32,7 @@ const BhagwanCard = ({ title, slug, image, type }: BhagwanType) => {
           <Dialog.Overlay className="fixed inset-0 bg-white opacity-50" />
           <Dialog.Content className="fixed inset-0 flex items-center justify-center z-50 backdrop-blur-2xl md:px-0 px-5">
             <div className="w-full max-w-xl bg-white rounded-lg relative shadow-2xl md:px-0 px-5">
-              <div className="flex md:flex-row flex-col w-full">
+              <div className="flex md:flex-row flex-col w-full p-5">
                 <div className="md:w-2/5 w-full">
                   <Image
                     src={image.image}
@@ -42,7 +42,7 @@ const BhagwanCard = ({ title, slug, image, type }: BhagwanType) => {
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <div className="p-5 md:w-3/5 w-full">
+                <div className="md:w-3/5 w-full">
                   {title && (
                     <Dialog.Title className="text-xl font-bold mb-5">
                       {title}
@@ -67,7 +67,9 @@ const BhagwanCard = ({ title, slug, image, type }: BhagwanType) => {
                           <span
                             className={`group-hover:bg-secondary-50 absolute inset-0 h-full w-full border border-secondary bg-primary`}
                           ></span>
-                          <span className={`relative text-secondary`}>
+                          <span
+                            className={`relative text-secondary text-lg font-gotu`}
+                          >
                             {item.bookTypeName}
                           </span>{" "}
                         </Link>

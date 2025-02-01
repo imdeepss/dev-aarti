@@ -1,16 +1,16 @@
 import { Amita, Gotu } from "next/font/google";
 import { ReactNode } from "react";
 
-import "@/styles/globals.css";
-import { Metadata } from "next";
 import { Footer, Header } from "@/_components/layouts";
-import { Analytics } from "@vercel/analytics/next";
+import "@/styles/globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/next";
+import { Metadata } from "next";
 
 // Google Fonts setup
 const amita = Amita({
   variable: "--font-amita",
-  subsets: ["latin"],
+  subsets: ["latin", "devanagari"],
   display: "swap",
   weight: ["400", "700"],
 });
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${gotu.className} ${amita.className}`}>
-      <body>
+      <body className="relative">
         <main>
           <Header />
           {children}
