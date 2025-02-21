@@ -8,10 +8,10 @@ const page = () => {
       <Container>
         {/* Section Heading */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl sm:text-5xl font-bold text-secondary mb-4">
+          <h1 className="text-2xl font-bold text-secondary sm:text-3xl font-amita">
             देव आरती संग्रह के बारे में
           </h1>
-          <div className="w-24 h-1 bg-secondary mx-auto mb-6" />
+          <div className="bg-secondary my-4 inline-block h-1 w-16 rounded mx-auto" />
           <p className="text-xl text-secondary leading-relaxed">
             आरती की दिव्य दुनिया को जानें, हमारे भक्ति गीतों और आध्यात्मिक
             मंत्रों के संग्रह के साथ। भक्ति के इस आत्मीय अनुभव में खो जाएं और हर

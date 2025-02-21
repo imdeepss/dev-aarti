@@ -30,7 +30,7 @@ const Contact = () => {
   return (
     <Container className="py-16 min-h-screen flex flex-col justify-center items-center">
       <div className="mb-12 flex w-full flex-col text-center">
-        <h2 className="text-3xl font-medium text-secondary sm:text-4xl">
+        <h2 className="text-2xl font-bold text-secondary sm:text-3xl font-amita">
           संपर्क करें
         </h2>
         <div className="bg-secondary my-4 inline-block h-1 w-16 rounded mx-auto" />
