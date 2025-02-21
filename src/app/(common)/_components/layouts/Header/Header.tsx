@@ -12,7 +12,6 @@ export default function Header() {
   const [collapseMenu, setCollapseMenu] = useState<boolean>(false);
   const menuRef = useRef<HTMLElement | null>(null);
 
-  // Close menu when clicking outside of it
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -26,12 +25,14 @@ export default function Header() {
     };
   }, []);
 
-  // Lock body scroll when menu is open
   useLockBodyScroll(collapseMenu);
 
-  // Toggle menu open/close
   const handleMenuToggle = () => {
     setCollapseMenu((prevState) => !prevState);
+  };
+
+  const handleLinkClick = () => {
+    setCollapseMenu(false);
   };
 
   return (
@@ -59,7 +60,12 @@ export default function Header() {
           <nav
             ref={menuRef}
             className={`lg:flex flex-wrap items-center justify-center text-lg font-medium text-secondary gap-5
-              ${collapseMenu ? "fixed w-3/4 z-20 top-0 left-0 duration-500 ease-in-out flex flex-col bg-primary h-[100svh] p-10 !items-start !justify-start shadow-2xl !overflow-hidden transition-transform transform" : "hidden"}`}
+              ${
+                collapseMenu
+                  ? "fixed w-3/4 z-20 top-0 left-0 duration-500 ease-in-out transform translate-x-0 flex flex-col bg-primary h-[100svh] p-10 !items-start !justify-start shadow-2xl !overflow-hidden"
+                  : "hidden"
+              }
+              transition-transform`}
             aria-label="Main navigation"
           >
             {headerData.map((singleHeader) => (
@@ -68,7 +74,7 @@ export default function Header() {
                 href={singleHeader.href}
                 className="group relative hover:text-secondary"
                 aria-label={singleHeader.text}
-                onClick={handleMenuToggle}
+                onClick={handleLinkClick}
               >
                 <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-secondary transition-all group-hover:w-full"></span>
                 {singleHeader.text}
