@@ -47,11 +47,11 @@ export default function Header() {
         />
       )}
 
-      <Container>
+      <Container className="!px-0">
         <div className="flex flex-wrap items-center justify-between gap-2">
           {/* Logo */}
           <Link href="/" aria-label="Go to Home">
-            <span className="text-xl font-amita font-bold">
+            <span className="text-xl font-amita font-bold hidden md:block">
               देव आरती संग्रह
             </span>
           </Link>
@@ -84,7 +84,7 @@ export default function Header() {
           </nav>
 
           {/* Mobile Menu Button */}
-          <div className="lg:hidden block z-30">
+          <div className="lg:hidden flex gap-2 z-30">
             <button
               type="button"
               onClick={handleMenuToggle}
@@ -93,6 +93,7 @@ export default function Header() {
             >
               {collapseMenu ? <CloseIcon /> : <BreadcrumbIcon />}
             </button>
+            <SearchInput />
           </div>
         </div>
       </Container>

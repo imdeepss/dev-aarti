@@ -48,3 +48,21 @@ export async function getBhagwanList() {
       }`
   );
 }
+
+export async function searchPosts(searchTerm: string) {
+  if (!searchTerm || typeof searchTerm !== "string") {
+    throw new Error("Invalid search term");
+  }
+
+  return client.fetch(
+    groq`*[_type == "post" && title match $searchTerm || content match $searchTerm]{
+      _id,
+      title,
+      slug,
+      image { alt, "image": asset->url },
+      content,
+      seo,
+    }`,
+    { searchTerm: `*${searchTerm}*` }
+  );
+}
