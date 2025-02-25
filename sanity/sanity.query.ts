@@ -50,19 +50,45 @@ export async function getBhagwanList() {
 }
 
 export async function searchPosts(searchTerm: string) {
-  if (!searchTerm || typeof searchTerm !== "string") {
-    throw new Error("Invalid search term");
-  }
+  try {
+    // Search query for matching records based on the search term
+    const posts = await client.fetch(
+      groq`*[_type == "bhagwan" && 
+            (title match $searchTerm || slug.current match $searchTerm || _id match $searchTerm)]{
+              _id,
+              title,
+              slug,
+              image { alt, "image": asset->url },
+              type[]->{
+                _id,
+                bookTypeName
+              }
+            }`,
+      { searchTerm: `*${searchTerm.toLowerCase()}*` }
+    );
 
-  return client.fetch(
-    groq`*[_type == "post" && title match $searchTerm || content match $searchTerm]{
-      _id,
-      title,
-      slug,
-      image { alt, "image": asset->url },
-      content,
-      seo,
-    }`,
-    { searchTerm: `*${searchTerm}*` }
-  );
+    // If no posts are found, return all Bhagwan records
+    if (posts.length === 0) {
+      const allPosts = await client.fetch(
+        groq`*[_type == "bhagwan"]{
+          _id,
+          title,
+          slug,
+          image { alt, "image": asset->url },
+          type[]->{
+            _id,
+            bookTypeName
+          }
+        }`
+      );
+      console.log("No matching posts, returning all Bhagwan posts", allPosts);
+      return allPosts;
+    }
+
+    console.log("Posts found:", posts);
+    return posts;
+  } catch (error) {
+    console.error("Search error:", error);
+    return [];
+  }
 }

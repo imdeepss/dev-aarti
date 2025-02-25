@@ -1,17 +1,20 @@
 "use client";
 
 import { SearchIcon } from "@/_components/icon";
+import { BhagwanContext } from "@/app/context/bhagwanContext";
 import useDebounce from "@/hook/useDebounce";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 const SearchInput = () => {
   const [search, setSearch] = useState<string>("");
 
   const debouncedSearch = useDebounce(search, 500);
 
+  const { searchData } = useContext(BhagwanContext) || { searchData: () => {} };
+
   useEffect(() => {
     if (debouncedSearch) {
-      console.log("Debounced search value: ", debouncedSearch);
+      searchData(debouncedSearch);
     }
   }, [debouncedSearch]);
 
@@ -30,6 +33,7 @@ const SearchInput = () => {
         value={search}
         onChange={handleChange}
         name="search"
+        placeholder="भगवान का नाम"
       />
     </div>
   );

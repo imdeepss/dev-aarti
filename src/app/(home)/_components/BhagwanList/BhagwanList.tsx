@@ -10,7 +10,9 @@ import { BhagwanContext } from "@/app/context/bhagwanContext";
 import SkeletonCard from "../SkeletonCard";
 
 const BhagwanList = () => {
-  const { bhagwanList } = useContext(BhagwanContext) || { bhagwanList: [] };
+  const { bhagwanList, searchData = () => {} } = useContext(BhagwanContext) || {
+    bhagwanList: [],
+  };
   const [data, setData] = useState<BhagwanType[] | null>(bhagwanList);
 
   useEffect(() => {
@@ -21,14 +23,9 @@ const BhagwanList = () => {
 
   const filterAarti = (type: string) => {
     if (type === "All") {
-      setData(bhagwanList);
+      searchData("");
     } else {
-      const filteredAarti = bhagwanList?.filter(
-        (item) => item.slug?.current === type
-      );
-      if (filteredAarti) {
-        setData(filteredAarti);
-      }
+      searchData(type);
     }
   };
 
