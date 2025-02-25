@@ -6,6 +6,7 @@ import "@/styles/globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Metadata } from "next";
+import { BhagwanProvider } from "./context/bhagwanContext";
 
 // Google Fonts setup
 const amita = Amita({
@@ -37,11 +38,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${gotu.className} ${amita.className}`}>
       <body className="relative">
-        <main>
-          <Header />
-          {children}
-          <Footer />
-        </main>
+        <BhagwanProvider>
+          <main>
+            <Header />
+            {children}
+            <Footer />
+          </main>
+        </BhagwanProvider>
         <Analytics />
         <GoogleAnalytics gaId={process.env.GA_TAG ?? "G-4FHG2030NP"} />
       </body>

@@ -5,28 +5,34 @@ import { featuredData } from "@/data/index";
 import BhagwanCard from "../BhagwanCard/BhagwanCard";
 
 import { BhagwanType } from "@/type/index";
-import { useState } from "react";
+import { useContext, useState, useEffect } from "react";
+import { BhagwanContext } from "@/app/context/bhagwanContext";
 
-type BhagwanListProps = {
-  bhagwanList: BhagwanType[];
-};
+const BhagwanList = () => {
+  const { bhagwanList } = useContext(BhagwanContext) || { bhagwanList: [] };
+  const [data, setData] = useState<BhagwanType[] | null>(bhagwanList);
 
-const BhagwanList: React.FC<BhagwanListProps> = ({ bhagwanList }) => {
-  const [data, setData] = useState<BhagwanType[]>(bhagwanList);
+  useEffect(() => {
+    if (bhagwanList) {
+      setData(bhagwanList);
+    }
+  }, [bhagwanList]);
 
   const filterAarti = (type: string) => {
     if (type === "All") {
       setData(bhagwanList);
     } else {
-      const filteredAarti = bhagwanList.filter(
+      const filteredAarti = bhagwanList?.filter(
         (item) => item.slug?.current === type
       );
-      setData(filteredAarti);
+      if (filteredAarti) {
+        setData(filteredAarti);
+      }
     }
   };
 
   return (
-    <Container className="">
+    <Container>
       <div className="mb-8 flex justify-center flex-wrap items-center gap-4">
         {featuredData.map((button) => {
           return (
@@ -40,9 +46,9 @@ const BhagwanList: React.FC<BhagwanListProps> = ({ bhagwanList }) => {
       </div>
 
       <div className="grid w-full grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-6">
-        {data.map((item: BhagwanType) => (
-          <BhagwanCard {...item} key={item._id} />
-        ))}
+        {data?.map((item: BhagwanType) => {
+          return <BhagwanCard {...item} key={item._id} />;
+        })}
       </div>
     </Container>
   );
