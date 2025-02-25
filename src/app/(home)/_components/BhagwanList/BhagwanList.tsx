@@ -7,6 +7,7 @@ import BhagwanCard from "../BhagwanCard/BhagwanCard";
 import { BhagwanType } from "@/type/index";
 import { useContext, useState, useEffect } from "react";
 import { BhagwanContext } from "@/app/context/bhagwanContext";
+import SkeletonCard from "../SkeletonCard";
 
 const BhagwanList = () => {
   const { bhagwanList } = useContext(BhagwanContext) || { bhagwanList: [] };
@@ -46,9 +47,13 @@ const BhagwanList = () => {
       </div>
 
       <div className="grid w-full grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-6">
-        {data?.map((item: BhagwanType) => {
-          return <BhagwanCard {...item} key={item._id} />;
-        })}
+        {data
+          ? data?.map((item: BhagwanType) => {
+              return <BhagwanCard {...item} key={item._id} />;
+            })
+          : Array.from({ length: 12 }, (_, index) => {
+              return <SkeletonCard key={index} />;
+            })}
       </div>
     </Container>
   );
