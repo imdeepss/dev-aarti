@@ -1,7 +1,7 @@
 "use client";
 
 import { getBhagwanList, searchPosts } from "@/sanity/sanity.query";
-import React, { createContext, useEffect, useState } from "react";
+import React, { cache, createContext, useEffect, useState } from "react";
 import { BhagwanType } from "../types";
 
 export const BhagwanContext = createContext<
@@ -19,24 +19,24 @@ export const BhagwanProvider = ({
 }) => {
   const [bhagwanList, setBhagwanList] = useState<BhagwanType[] | null>(null);
 
-  const fetchBhagwanList = async () => {
+  const fetchBhagwanList = cache(async () => {
     try {
       const bhagwanListData = await getBhagwanList();
       setBhagwanList(bhagwanListData);
     } catch (err) {
       console.error("Error fetching Bhagwan list:", err);
     }
-  };
+  });
 
   // Define the search function separately
-  const searchData = async (value: string) => {
+  const searchData = cache(async (value: string) => {
     try {
       const bhagwanListData = await searchPosts(value);
       setBhagwanList(bhagwanListData);
     } catch (err) {
       console.error("Error searching Bhagwan list:", err);
     }
-  };
+  });
 
   useEffect(() => {
     fetchBhagwanList();

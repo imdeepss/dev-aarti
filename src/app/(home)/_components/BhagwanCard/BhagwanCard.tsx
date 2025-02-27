@@ -22,6 +22,7 @@ const BhagwanCard = ({ title, slug, image, type }: BhagwanType) => {
             width={200}
             height={200}
             className="aspect-square"
+            loading="lazy"
           />
         </button>
         <h2 className="text-lg font-bold text-secondary font-gotu">{title}</h2>
