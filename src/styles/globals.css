@@ -5,10 +5,9 @@
 /* Define font variables */
 :root {
   --primary: #ffffff;
- /* --secondary: #000000;  */
-  --secondary: #CA2206;
-  --tertiary: #121212;
-  --text-black: #121212;
+  --secondary: #000000;
+  --tertiary: #9c9c9c;
+
   --font-amita: "Amita", sans-serif;
   --font-gotu: "Gotu", sans-serif;
 }

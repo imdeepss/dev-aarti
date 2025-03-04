@@ -1,5 +1,5 @@
+import { IconProps } from "@/type/index";
 import * as React from "react";
-import { IconProps } from "../../types";
 
 const InstagramIcon = ({ width, height, color }: IconProps) => {
   return (

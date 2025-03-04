@@ -1,14 +1,39 @@
-import { SearchIcon } from '@/_components/icon';
+"use client";
+
+import { SearchIcon } from "@/_components/icon";
+import { BhagwanContext } from "@/app/context/bhagwanContext";
+import useDebounce from "@/hook/useDebounce";
+import { useContext, useEffect, useState } from "react";
 
 const SearchInput = () => {
+  const [search, setSearch] = useState<string>("");
+
+  const debouncedSearch = useDebounce(search, 500);
+
+  const { searchData } = useContext(BhagwanContext) || { searchData: () => {} };
+
+  useEffect(() => {
+    if (debouncedSearch) {
+      searchData(debouncedSearch);
+    }
+  }, [debouncedSearch]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  };
+
   return (
-    <div className="relative text-secondary focus-within:text-tertiary">
+    <div className="relative text-secondary focus-within:text-secondary">
       <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
         <SearchIcon />
       </div>
       <input
         type="text"
-        className="block w-full max-w-0 rounded-full border border-secondary bg-transparent py-2 pl-4 pr-7 text-sm font-normal leading-relaxed text-tertiary placeholder-tertiary outline-none transition-all duration-1000 ease-in-out hover:max-w-sm focus:max-w-sm focus:outline-none"
+        className="block w-full max-w-0 rounded-full border border-secondary bg-transparent py-2 pl-4 pr-7 text-sm font-normal leading-relaxed text-secondary placeholder-secondary outline-none transition-all duration-1000 ease-in-out hover:md:max-w-sm focus:md:max-w-sm focus:outline-none hover:max-w-xs focus:max-w-xs"
+        value={search}
+        onChange={handleChange}
+        name="search"
+        placeholder="भगवान का नाम"
       />
     </div>
   );

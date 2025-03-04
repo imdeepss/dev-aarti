@@ -34,13 +34,13 @@ const Testimonial = () => {
               index: Key | null | undefined
             ) => (
               <SwiperSlide key={index}>
-                <div className="bg-white p-8 rounded-lg text-center">
-                  <p className="text-lg leading-relaxed">{testimonial.quote}</p>
+                <div className="bg-white p-8 rounded-lg text-center font-gotu">
+                  <p className="text-lg">{testimonial.quote}</p>
                   <div className="bg-secondary my-4 inline-block h-1 w-16 rounded mx-auto" />
-                  <h2 className="title-font text-sm font-medium tracking-wider text-secondary">
+                  <h2 className="text-base font-medium tracking-wider text-secondary">
                     {testimonial.source}
                   </h2>
-                  <p className="text-tertiary"> {testimonial.author}</p>
+                  <h3 className="text-secondary"> {testimonial.author}</h3>
                 </div>
               </SwiperSlide>
             )

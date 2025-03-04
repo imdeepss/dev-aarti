@@ -4,7 +4,7 @@ import {
   GithubIcon,
   InstagramIcon,
   LinkedinIcon,
-  WhatsappIcon,
+  WhatsAppIcon,
   XIcon,
 } from "@/_components/icon";
 
@@ -24,7 +24,7 @@ const teamMembers = [
         label: "LinkedIn",
       },
       {
-        icon: WhatsappIcon,
+        icon: WhatsAppIcon,
         url: "https://whatsapp.com/in/deepak",
         label: "WhatsApp",
       },
@@ -57,7 +57,7 @@ const teamMembers = [
         label: "LinkedIn",
       },
       {
-        icon: WhatsappIcon,
+        icon: WhatsAppIcon,
         url: "https://whatsapp.com/in/siddharth",
         label: "WhatsApp",
       },
@@ -86,7 +86,7 @@ const teamMembers = [
         label: "LinkedIn",
       },
       {
-        icon: WhatsappIcon,
+        icon: WhatsAppIcon,
         url: "https://whatsapp.com/in/angad",
         label: "WhatsApp",
       },
@@ -115,7 +115,7 @@ const teamMembers = [
         label: "LinkedIn",
       },
       {
-        icon: WhatsappIcon,
+        icon: WhatsAppIcon,
         url: "https://whatsapp.com/in/simran",
         label: "WhatsApp",
       },
@@ -144,7 +144,7 @@ const teamMembers = [
         label: "LinkedIn",
       },
       {
-        icon: WhatsappIcon,
+        icon: WhatsAppIcon,
         url: "https://whatsapp.com/in/pankaj",
         label: "WhatsApp",
       },

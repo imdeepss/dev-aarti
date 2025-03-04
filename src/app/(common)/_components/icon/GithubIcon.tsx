@@ -1,5 +1,5 @@
+import { IconProps } from "@/type/index";
 import * as React from "react";
-import { IconProps } from "../../types";
 
 const GithubIcon = ({ width, height, color }: IconProps) => {
   return (

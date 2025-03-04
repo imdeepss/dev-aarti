@@ -1,10 +1,10 @@
-import { AartiCardList, Banner, Testimonial } from "./_components";
+import { Banner, BhagwanList, Testimonial } from "./_components";
 
-export default function HomePage() {
+export default async function HomePage() {
   return (
     <>
       <Banner />
-      <AartiCardList />
+      <BhagwanList />
       <Testimonial />
     </>
   );

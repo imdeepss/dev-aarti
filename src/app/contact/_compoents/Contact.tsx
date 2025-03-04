@@ -30,11 +30,11 @@ const Contact = () => {
   return (
     <Container className="py-16 min-h-screen flex flex-col justify-center items-center">
       <div className="mb-12 flex w-full flex-col text-center">
-        <h2 className="text-3xl font-medium text-secondary sm:text-4xl">
+        <h2 className="text-2xl font-bold text-secondary sm:text-3xl font-amita">
           संपर्क करें
         </h2>
         <div className="bg-secondary my-4 inline-block h-1 w-16 rounded mx-auto" />
-        <p className="mx-auto text-base leading-relaxed lg:w-2/3 text-tertiary">
+        <p className="mx-auto text-base leading-relaxed lg:w-2/3 text-secondary">
           हमसे संपर्क करें! हम आपके सवालों का जवाब देने, अधिक जानकारी प्रदान
           करने, या आपकी किसी भी समस्या में मदद करने के लिए यहां हैं। हमसे संपर्क
           करें और हम जल्द ही आपसे जुड़ेंगे।
@@ -46,7 +46,7 @@ const Contact = () => {
       >
         <div className="flex gap-4">
           <div className="flex-1">
-            <label htmlFor="name" className="text-sm leading-7 text-tertiary">
+            <label htmlFor="name" className="text-sm leading-7 text-secondary">
               आपका नाम
             </label>
             <input
@@ -55,12 +55,12 @@ const Contact = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full rounded border border-tertiary bg-opacity-50 px-4 py-2 text-base leading-8 text-tertiary outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-primary focus:ring-2 focus:ring-indigo-200"
+              className="w-full rounded border border-secondary bg-opacity-50 px-4 py-2 text-base leading-8 text-secondary outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-primary focus:ring-2 focus:ring-indigo-200"
               required
             />
           </div>
           <div className="flex-1">
-            <label htmlFor="email" className="text-sm leading-7 text-tertiary">
+            <label htmlFor="email" className="text-sm leading-7 text-secondary">
               आपका ईमेल
             </label>
             <input
@@ -69,14 +69,14 @@ const Contact = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full rounded border border-tertiary bg-opacity-50 px-4 py-2 text-base leading-8 text-tertiary outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-primary focus:ring-2 focus:ring-indigo-200"
+              className="w-full rounded border border-secondary bg-opacity-50 px-4 py-2 text-base leading-8 text-secondary outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-primary focus:ring-2 focus:ring-indigo-200"
               required
             />
           </div>
         </div>
 
         <div>
-          <label htmlFor="message" className="text-sm leading-7 text-tertiary">
+          <label htmlFor="message" className="text-sm leading-7 text-secondary">
             आपका संदेश
           </label>
           <textarea
@@ -84,7 +84,7 @@ const Contact = () => {
             name="message"
             value={formData.message}
             onChange={handleChange}
-            className="h-40 w-full resize-none rounded border border-tertiary bg-opacity-50 px-4 py-2 text-base leading-6 text-tertiary outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-primary focus:ring-2 focus:ring-indigo-200"
+            className="h-40 w-full resize-none rounded border border-secondary bg-opacity-50 px-4 py-2 text-base leading-6 text-secondary outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-primary focus:ring-2 focus:ring-indigo-200"
             required
           ></textarea>
         </div>
