@@ -1,5 +1,6 @@
 import { Container } from "@/_components/layouts";
 import React from "react";
+import MeetTheTeam from "../team/_components";
 
 const page = () => {
   return (
@@ -58,49 +59,7 @@ const page = () => {
         </div>
 
         {/* Team Section */}
-        <div className="mt-20 text-center">
-          <h2 className="text-3xl font-medium text-secondary mb-6">
-            टीम से मिलें
-          </h2>
-          <div className="flex justify-center gap-8 flex-wrap">
-            {/* Team Member 1 */}
-            <div className="w-40 text-center mb-8">
-              <img
-                src="/path-to-your-image/team-member1.jpg"
-                alt="Team Member"
-                className="w-full h-40 object-cover rounded-full shadow-lg mb-4"
-              />
-              <h3 className="text-lg font-medium text-tertiary">
-                दीपक विश्वकर्मा
-              </h3>
-              <p className="text-sm text-tertiary">संस्थापक</p>
-            </div>
-            {/* Team Member 2 */}
-            <div className="w-40 text-center mb-8">
-              <img
-                src="/path-to-your-image/team-member2.jpg"
-                alt="Team Member"
-                className="w-full h-40 object-cover rounded-full shadow-lg mb-4"
-              />
-              <h3 className="text-lg font-medium text-tertiary">
-                अंगद कनौजिया
-              </h3>
-              <p className="text-sm text-tertiary">आध्यात्मिक निदेशक</p>
-            </div>
-            {/* Team Member 3 */}
-            <div className="w-40 text-center mb-8">
-              <img
-                src="/path-to-your-image/team-member3.jpg"
-                alt="Team Member"
-                className="w-full h-40 object-cover rounded-full shadow-lg mb-4"
-              />
-              <h3 className="text-lg font-medium text-tertiary">
-                सिद्धार्थ सिंह
-              </h3>
-              <p className="text-sm text-tertiary">सामग्री निर्माता</p>
-            </div>
-          </div>
-        </div>
+        <MeetTheTeam />
       </Container>
     </div>
   );
