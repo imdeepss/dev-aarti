@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${gotu.className} ${amita.className}`}>
+    <html lang="hi" className={`${gotu.className} ${amita.className}`}>
       <body className="relative">
         <BhagwanProvider>
           <main>
