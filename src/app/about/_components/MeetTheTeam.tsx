@@ -82,12 +82,12 @@ const teamMembers: TeamDetailsType[] = [
       },
     ],
   },
-  {
-    name: "Simran Vishwakarma",
-    role: "Graphic Designer, Website Designer",
-    image: "/images/team/simran.png",
-    social: [],
-  },
+  // {
+  //   name: "Simran Vishwakarma",
+  //   role: "Graphic Designer, Website Designer",
+  //   image: "/images/team/simran.png",
+  //   social: [],
+  // },
   {
     name: "Pankaj Gupta",
     role: "Mobile App Developer",
