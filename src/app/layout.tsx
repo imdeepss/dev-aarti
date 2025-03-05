@@ -1,7 +1,7 @@
 import { Amita, Gotu } from "next/font/google";
 import { ReactNode } from "react";
 
-import { Footer, Header } from "@/_components/layouts";
+import { Footer, Header, ThemeToggle } from "@/_components/layouts";
 import "@/styles/globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="hi" className={`${gotu.className} ${amita.className}`}>
-      <body className="relative">
+      <body className="relative bg-primary text-secondary">
         <BhagwanProvider>
           <main>
             <Header />
@@ -45,6 +45,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <Footer />
           </main>
         </BhagwanProvider>
+        <ThemeToggle />
         <Analytics />
         <GoogleAnalytics gaId={process.env.GA_TAG ?? "G-4FHG2030NP"} />
       </body>

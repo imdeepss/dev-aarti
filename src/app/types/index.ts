@@ -50,6 +50,7 @@ export type IconProps = {
   height?: string;
   width?: string;
   color?: string;
+  className?: string;
 };
 
 export type ModalProps = {

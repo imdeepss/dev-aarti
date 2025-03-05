@@ -6,3 +6,5 @@ export { default as LinkedinIcon } from "./LinkedinIcon";
 export { default as WhatsAppIcon } from "./WhatsAppIcon";
 export { default as XIcon } from "./XIcon";
 export { default as BreadcrumbIcon } from "./BreadcrumbIcon";
+export { default as SunIcon } from "./SunIcon";
+export { default as MoonIcon } from "./MoonIcon";
