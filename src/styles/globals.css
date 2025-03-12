@@ -15,10 +15,11 @@
   --font-gotu: "Gotu", sans-serif;
 }
 
-.light {
+html:not(.dark) {
   color-scheme: light;
 }
-.dark {
+
+html.dark {
   color-scheme: dark;
 }
 
