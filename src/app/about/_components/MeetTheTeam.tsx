@@ -28,7 +28,7 @@ const teamMembers: TeamDetailsType[] = [
   {
     name: "Deepak Vishwakarma",
     role: "Founder, Full Stack Developer",
-    image: "/images/team/deepak.png",
+    image: "/images/team/Deepak.png",
     social: [
       { icon: GithubIcon, url: "https://github.com/imdeepss", label: "GitHub" },
       {
@@ -68,7 +68,7 @@ const teamMembers: TeamDetailsType[] = [
   {
     name: "Angad Kanojia",
     role: "UI/UX Improver & Feature Contributor",
-    image: "/images/team/angad.jpg",
+    image: "/images/team/Angad.jpg",
     social: [
       {
         icon: GithubIcon,
