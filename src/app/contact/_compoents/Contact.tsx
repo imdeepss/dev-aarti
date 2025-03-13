@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Container } from "@/_components/layouts";
+import { Container } from "@/_components/layouts";
 import React, { useState } from "react";
 
 const Contact = () => {
@@ -18,12 +18,31 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Perform form submission logic here (e.g., sending data to a server)
-    // Reset form or show success message after submission.
-    console.log("Form submitted:", formData);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+      console.log("Response Data:", data);
+
+      if (!response.ok) {
+        throw new Error(data.message || "Unknown error occurred");
+      }
+
+      alert("संदेश सफलतापूर्वक भेजा गया!");
+      setFormData({ name: "", email: "", message: "" }); // Reset form
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("संदेश भेजने में समस्या हुई, कृपया पुनः प्रयास करें!");
+    }
+
     setIsSubmitting(false);
   };
 
@@ -90,13 +109,17 @@ const Contact = () => {
         </div>
 
         <div className="w-full flex justify-center">
-          <div
-            className={`w-full ${
-              isSubmitting ? "opacity-50 cursor-not-allowed" : "cursor-pointer"
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className={`w-full bg-indigo-600 text-white py-3 rounded-md font-semibold transition ${
+              isSubmitting
+                ? "opacity-50 cursor-not-allowed"
+                : "hover:bg-indigo-700"
             }`}
           >
-            <Button text="सबमिट करें" />
-          </div>
+            {isSubmitting ? "भेजा जा रहा है..." : "सबमिट करें"}
+          </button>
         </div>
       </form>
     </Container>

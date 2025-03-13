@@ -28,7 +28,10 @@ export const metadata: Metadata = {
     "देव आरती संगरह में हिन्दू भक्ति गीतों और आरतियों का संपूर्ण संग्रह पाएं। आध्यात्मिकता, श्रद्धा और दैनिक पूजा से जुड़ी प्रार्थनाओं को खोजें।",
   keywords:
     "Hindu Aarti, Aarti Songs, Bhakti Aarti, Hindu Songs, Aarti Lyrics, Aarti for Bhagawan, Aarti in hindi, Aarti Prayers, God Aarti Collection, Popular Hindu Aartis, Aarti for Worship, Aarti Collection Hindu, Lord Aarti Songs, Shiva Aarti, Ganesh Aarti, Durga Aarti, Hindu Prayer Songs, Aarti for Spirituality, Aarti Chanting, Morning Aarti Prayers, Lord Krishna Aarti, Lord Vishnu Aarti, Lord Ram Aarti, Dev Aarti, Dev Aarti Sangrah, Hindi Aarti",
-  metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}`),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://dev-aarti.vercel.app/"
+  ),
+
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL}`,
   },
