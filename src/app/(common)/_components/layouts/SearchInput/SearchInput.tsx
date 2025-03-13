@@ -29,7 +29,7 @@ const SearchInput = () => {
       </div>
       <input
         type="text"
-        className="block w-full max-w-0 rounded-full border border-secondary bg-transparent py-2 pl-4 pr-7 text-sm font-normal leading-relaxed text-secondary placeholder-secondary outline-none transition-all duration-1000 ease-in-out hover:md:max-w-sm focus:md:max-w-sm focus:outline-none hover:max-w-xs focus:max-w-xs"
+        className="block w-full max-w-0 rounded-full border border-secondary bg-transparent py-2 pl-4 pr-7 text-sm font-normal leading-relaxed text-secondary placeholder-secondary outline-none transition-all duration-1000 ease-in-out hover:md:max-w-[calc(100%_-_100px)] focus:md:max-w-[calc(100%_-_100px)] focus:outline-none hover:max-w-xs focus:max-w-xs"
         value={search}
         onChange={handleChange}
         name="search"
