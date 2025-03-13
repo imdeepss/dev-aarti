@@ -2,18 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Define font variables */
+
 :root {
-  --primary: #ffffff;
-  --secondary: #000000;
+
+  color-scheme: light dark;
+
+  --primary:  light-dark(#ffffff,#000000);
+  --secondary: light-dark(#000000,#ffffff);
   --tertiary: #9c9c9c;
 
   --font-amita: "Amita", sans-serif;
   --font-gotu: "Gotu", sans-serif;
 }
 
-.swiper-pagination-bullet {
-  background-color: black !important;
-  width: 10px !important;
-  height: 10px !important;
+html:not(.dark) {
+  color-scheme: light;
 }
+
+html.dark {
+  color-scheme: dark;
+}
+

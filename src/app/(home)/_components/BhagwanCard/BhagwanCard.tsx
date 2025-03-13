@@ -30,10 +30,10 @@ const BhagwanCard = ({ title, slug, image, type }: BhagwanType) => {
 
       <Dialog.Root open={isOpen} onOpenChange={setOpen}>
         <Dialog.Portal>
-          <Dialog.Overlay className="fixed inset-0 bg-white opacity-50" />
+          <Dialog.Overlay className="fixed inset-0 bg-secondary  opacity-50" />
           <Dialog.Content className="fixed inset-0 flex items-center justify-center z-50 backdrop-blur-2xl md:px-0 px-5">
-            <div className="w-full max-w-xl bg-white rounded-lg relative shadow-2xl md:px-0 px-5">
-              <div className="flex md:flex-row flex-col w-full p-5">
+            <div className="w-full max-w-xl bg-primary rounded-lg relative shadow-2xl md:px-0 px-5">
+              <div className="flex md:flex-row flex-col w-full p-5 gap-5">
                 <div className="md:w-2/5 w-full">
                   <Image
                     src={image.image}
@@ -69,7 +69,7 @@ const BhagwanCard = ({ title, slug, image, type }: BhagwanType) => {
                             className={`group-hover:bg-secondary-50 absolute inset-0 h-full w-full border border-secondary bg-primary`}
                           ></span>
                           <span
-                            className={`relative text-secondary text-lg font-gotu`}
+                            className={`relative text-secondary text-base md:text-lg font-gotu`}
                           >
                             {item.bookTypeName}
                           </span>{" "}

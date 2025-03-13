@@ -2,6 +2,7 @@ import {
   GithubIcon,
   InstagramIcon,
   LinkedinIcon,
+  UserIcon,
   WhatsAppIcon,
   XIcon,
 } from "@/_components/icon";
@@ -20,15 +21,15 @@ type SocialType = {
 type TeamDetailsType = {
   name: string;
   role: string;
-  image: string;
-  social: SocialType[];
+  image?: string;
+  social?: SocialType[];
 };
 
 const teamMembers: TeamDetailsType[] = [
   {
     name: "Deepak Vishwakarma",
     role: "Founder, Full Stack Developer",
-    image: "/images/team/deepak.png",
+    image: "/images/team/Deepak.png",
     social: [
       { icon: GithubIcon, url: "https://github.com/imdeepss", label: "GitHub" },
       {
@@ -68,7 +69,7 @@ const teamMembers: TeamDetailsType[] = [
   {
     name: "Angad Kanojia",
     role: "UI/UX Improver & Feature Contributor",
-    image: "/images/team/angad.jpg",
+    image: "/images/team/Angad.jpg",
     social: [
       {
         icon: GithubIcon,
@@ -82,16 +83,15 @@ const teamMembers: TeamDetailsType[] = [
       },
     ],
   },
-  {
-    name: "Simran Vishwakarma",
-    role: "Graphic Designer, Website Designer",
-    image: "/images/team/simran.png",
-    social: [],
-  },
+  // {
+  //   name: "Simran Vishwakarma",
+  //   role: "Graphic Designer, Website Designer",
+  //   image: "/images/team/simran.png",
+  //   social: [],
+  // },
   {
     name: "Pankaj Gupta",
     role: "Mobile App Developer",
-    image: "/images/team/pankaj.jpg",
     social: [
       { icon: GithubIcon, url: "https://github.com/pankaj", label: "GitHub" },
       {
@@ -132,13 +132,17 @@ const MeetTheTeam = () => {
               className="p-3 md:p-5 rounded-xl shadow-lg transform transition-transform flex flex-col gap-3 ease-in-out"
             >
               <div className="relative w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-gray-600 shrink-0">
-                <Image
-                  src={member.image}
-                  alt={`${member.name}'s profile picture`}
-                  fill
-                  className="object-cover"
-                  priority
-                />
+                {member.image ? (
+                  <Image
+                    src={member.image}
+                    alt={`${member.name}'s profile picture`}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                ) : (
+                  <UserIcon />
+                )}
               </div>
 
               <div className="text-center text-secondary">
@@ -146,7 +150,7 @@ const MeetTheTeam = () => {
                 <div className="bg-secondary my-4 inline-block h-1 w-16 rounded mx-auto" />
                 <p className="text-base mb-2">{member.role}</p>
                 <div className="flex justify-center gap-2 items-center">
-                  {member?.social.map((social, i) => (
+                  {member?.social?.map((social, i) => (
                     <Link
                       key={i}
                       href={social.url}

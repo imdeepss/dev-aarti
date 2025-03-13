@@ -34,7 +34,7 @@ const Testimonial = () => {
               index: Key | null | undefined
             ) => (
               <SwiperSlide key={index}>
-                <div className="bg-white p-8 rounded-lg text-center font-gotu">
+                <div className="bg-primary p-8 rounded-lg text-center font-gotu">
                   <p className="text-lg">{testimonial.quote}</p>
                   <div className="bg-secondary my-4 inline-block h-1 w-16 rounded mx-auto" />
                   <h2 className="text-base font-medium tracking-wider text-secondary">

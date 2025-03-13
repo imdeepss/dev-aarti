@@ -10,15 +10,15 @@ export default function Footer() {
               देव आरती संग्रह
             </span>
           </a>
-          <p className="mt-4 text-sm text-secondary sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-secondary-200 sm:py-2 sm:pl-4">
+          <p className="mt-4 text-sm text-secondary sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-secondary-200 sm:py-2 sm:pl-4 underline underline-offset-2">
             © 2025 —
             <a
-              href="https://twitter.com/imdeepss"
+              href="https://x.com/_imdeepss_"
               className="ml-1 text-secondary"
               rel="noopener noreferrer"
               target="_blank"
             >
-              @imdeepss,@imsidd02
+              @ Deepak K Vishwakarma
             </a>
           </p>
           <span className="mt-4 inline-flex justify-center text-secondary sm:ml-auto sm:mt-0 sm:justify-start font-amita font-bold text-xl">

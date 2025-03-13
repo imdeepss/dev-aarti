@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Container from "../Container";
 import SearchInput from "../SearchInput";
+import Image from "next/image";
 
 export default function Header() {
   const [collapseMenu, setCollapseMenu] = useState<boolean>(false);
@@ -50,7 +51,17 @@ export default function Header() {
       <Container className="!px-0">
         <div className="flex flex-wrap items-center justify-between gap-2">
           {/* Logo */}
-          <Link href="/" aria-label="Go to Home">
+          <Link
+            href="/"
+            aria-label="Go to Home"
+            className="flex items-center gap-4"
+          >
+            <Image
+              src="/images/logo.png"
+              alt="देव आरती संग्रह"
+              width={48}
+              height={48}
+            />
             <span className="text-xl font-amita font-bold hidden md:block">
               देव आरती संग्रह
             </span>
