@@ -8,3 +8,4 @@ export { default as XIcon } from "./XIcon";
 export { default as BreadcrumbIcon } from "./BreadcrumbIcon";
 export { default as SunIcon } from "./SunIcon";
 export { default as MoonIcon } from "./MoonIcon";
+export { default as UserIcon } from "./UserIcon";
