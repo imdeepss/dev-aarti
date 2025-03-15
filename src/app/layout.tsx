@@ -37,6 +37,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="hi" className={`${gotu.className} ${amita.className}`}>
+      <meta
+        name="google-site-verification"
+        content="DQhbG4lgni-ppCVJeTTkMncrgR5mjN0rsp5teq0gGoY"
+      />
       <body className="relative bg-primary text-secondary">
         <BhagwanProvider>
           <main>
