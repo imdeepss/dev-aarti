@@ -6,3 +6,4 @@ export { default as Modal } from "./Modal";
 export { default as SearchInput } from "./SearchInput";
 export { default as WhatsAppShareButton } from "./WhatsAppShareButton";
 export { default as ThemeToggle } from "./ThemeToggle";
+export { default as GoogleAdSense } from "./GoogleAdSense";

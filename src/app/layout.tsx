@@ -1,7 +1,12 @@
 import { Amita, Gotu } from "next/font/google";
 import { ReactNode } from "react";
 
-import { Footer, Header, ThemeToggle } from "@/_components/layouts";
+import {
+  Footer,
+  GoogleAdSense,
+  Header,
+  ThemeToggle,
+} from "@/_components/layouts";
 import "@/styles/globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
@@ -52,6 +57,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <ThemeToggle />
         <Analytics />
         <GoogleAnalytics gaId={process.env.GA_TAG ?? "G-RCVSPS76BZ"} />
+        <GoogleAdSense
+          adClient={
+            process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID ??
+            "ca-pub-4399806634859151"
+          }
+        />
       </body>
     </html>
   );
