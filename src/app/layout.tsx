@@ -51,7 +51,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </BhagwanProvider>
         <ThemeToggle />
         <Analytics />
-        <GoogleAnalytics gaId={process.env.GA_TAG ?? "G-4FHG2030NP"} />
+        <GoogleAnalytics gaId={process.env.GA_TAG ?? "G-RCVSPS76BZ"} />
       </body>
     </html>
   );
