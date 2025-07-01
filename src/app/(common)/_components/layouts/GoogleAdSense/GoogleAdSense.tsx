@@ -31,6 +31,7 @@ export default function GoogleAdSense({ adClient }: { adClient: string }) {
       data-ad-slot="7081820574"
       data-ad-format="auto"
       data-full-width-responsive="true"
+      data-adtest="on"
     />
   );
 }
