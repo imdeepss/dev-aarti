@@ -1,30 +1,48 @@
 "use client";
 
-import { Button, Container } from "@/_components/layouts";
-import React, { useState } from "react";
+import { Container } from "@/_components/layouts";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import { ContactFormData, contactFormSchema } from "../schema/formSchema";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: { name: "", email: "", message: "" },
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    // Perform form submission logic here (e.g., sending data to a server)
-    // Reset form or show success message after submission.
-    console.log("Form submitted:", formData);
-    setIsSubmitting(false);
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || "सर्वर त्रुटि हुई");
+      }
+
+      toast.success("संदेश सफलतापूर्वक भेजा गया!");
+      reset();
+    } catch (error: unknown) {
+      console.error("Form submission error:", error);
+      toast.error(
+        (typeof error === "object" && error !== null && "message" in error
+          ? (error as { message?: string }).message
+          : undefined) || "संदेश भेजने में समस्या हुई, कृपया पुनः प्रयास करें!"
+      );
+    }
   };
 
   return (
@@ -41,8 +59,9 @@ const Contact = () => {
         </p>
       </div>
       <form
-        onSubmit={handleSubmit}
+        onSubmit={handleSubmit(onSubmit)}
         className="mx-auto md:w-2/3 lg:w-1/2 flex flex-col gap-6"
+        noValidate
       >
         <div className="flex gap-4">
           <div className="flex-1">
@@ -50,53 +69,109 @@ const Contact = () => {
               आपका नाम
             </label>
             <input
-              type="text"
+              {...register("name")}
               id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full rounded border border-secondary bg-opacity-50 px-4 py-2 text-base leading-8 text-secondary outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-primary focus:ring-2 focus:ring-indigo-200"
-              required
+              className={`w-full rounded border ${
+                errors.name ? "border-red-500" : "border-secondary"
+              } bg-opacity-50 px-4 py-2 text-base leading-8 text-secondary outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-primary focus:ring-2 focus:ring-indigo-200`}
+              aria-invalid={errors.name ? "true" : "false"}
+              aria-describedby={errors.name ? "name-error" : undefined}
             />
+            {errors.name && (
+              <p id="name-error" className="text-red-500 text-sm mt-1">
+                {errors.name.message}
+              </p>
+            )}
           </div>
           <div className="flex-1">
             <label htmlFor="email" className="text-sm leading-7 text-secondary">
               आपका ईमेल
             </label>
             <input
-              type="email"
+              {...register("email")}
               id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full rounded border border-secondary bg-opacity-50 px-4 py-2 text-base leading-8 text-secondary outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-primary focus:ring-2 focus:ring-indigo-200"
-              required
+              className={`w-full rounded border ${
+                errors.email ? "border-red-500" : "border-secondary"
+              } bg-opacity-50 px-4 py-2 text-base leading-8 text-secondary outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-primary focus:ring-2 focus:ring-indigo-200`}
+              aria-invalid={errors.email ? "true" : "false"}
+              aria-describedby={errors.email ? "email-error" : undefined}
             />
+            {errors.email && (
+              <p id="email-error" className="text-red-500 text-sm mt-1">
+                {errors.email.message}
+              </p>
+            )}
           </div>
         </div>
-
         <div>
           <label htmlFor="message" className="text-sm leading-7 text-secondary">
             आपका संदेश
           </label>
           <textarea
+            {...register("message")}
             id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            className="h-40 w-full resize-none rounded border border-secondary bg-opacity-50 px-4 py-2 text-base leading-6 text-secondary outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-primary focus:ring-2 focus:ring-indigo-200"
-            required
-          ></textarea>
+            className={`h-40 w-full resize-none rounded border ${
+              errors.message ? "border-red-500" : "border-secondary"
+            } bg-opacity-50 px-4 py-2 text-base leading-6 text-secondary outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-primary focus:ring-2 focus:ring-indigo-200`}
+            aria-invalid={errors.message ? "true" : "false"}
+            aria-describedby={errors.message ? "message-error" : undefined}
+          />
+          {errors.message && (
+            <p id="message-error" className="text-red-500 text-sm mt-1">
+              {errors.message.message}
+            </p>
+          )}
         </div>
-
         <div className="w-full flex justify-center">
-          <div
-            className={`w-full ${
-              isSubmitting ? "opacity-50 cursor-not-allowed" : "cursor-pointer"
+          <button
+            type="submit"
+            className={`group relative inline-block px-4 py-3 w-full font-medium ${
+              isSubmitting ? "opacity-50 cursor-not-allowed" : ""
             }`}
+            disabled={isSubmitting}
+            aria-busy={isSubmitting}
           >
-            <Button text="सबमिट करें" />
-          </div>
+            <span
+              className={`absolute inset-0 h-full w-full translate-x-1 translate-y-1 transform bg-secondary transition ease-out duration-400 ${
+                isSubmitting
+                  ? ""
+                  : "group-hover:-translate-x-0 group-hover:-translate-y-0"
+              }`}
+            ></span>
+            <span
+              className={`absolute inset-0 h-full w-full border border-secondary bg-primary ${
+                isSubmitting ? "" : "group-hover:bg-secondary-50"
+              }`}
+            ></span>
+            <span className="relative text-secondary text-lg font-gotu flex items-center justify-center">
+              {isSubmitting ? (
+                <>
+                  <svg
+                    className="animate-spin h-5 w-5 mr-2 text-secondary"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    />
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8v8h8a8 8 0 01-8 8v-8H4z"
+                    />
+                    Nieuwere versie
+                  </svg>
+                  भेजा जा रहा है...
+                </>
+              ) : (
+                "सबमिट करें"
+              )}
+            </span>
+          </button>
         </div>
       </form>
     </Container>

@@ -11,6 +11,8 @@ import "@/styles/globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Metadata } from "next";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { BhagwanProvider } from "./context/bhagwanContext";
 
 // Google Fonts setup
@@ -54,6 +56,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <Footer />
           </main>
         </BhagwanProvider>
+        <ToastContainer position="top-right" autoClose={3000} />
         <ThemeToggle />
         <Analytics />
         <GoogleAnalytics gaId={process.env.GA_TAG ?? "G-RCVSPS76BZ"} />
