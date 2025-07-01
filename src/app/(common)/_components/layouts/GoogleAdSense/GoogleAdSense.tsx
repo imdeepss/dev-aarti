@@ -28,7 +28,7 @@ export default function GoogleAdSense({ adClient }: { adClient: string }) {
       className="adsbygoogle"
       style={{ display: "block" }}
       data-ad-client={adClient}
-      data-ad-slot="YOUR_AD_SLOT_ID"
+      data-ad-slot="7081820574"
       data-ad-format="auto"
       data-full-width-responsive="true"
     />
