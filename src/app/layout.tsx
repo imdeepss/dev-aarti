@@ -14,6 +14,7 @@ import { Metadata } from "next";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BhagwanProvider } from "./context/bhagwanContext";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 // Google Fonts setup
 const amita = Amita({
@@ -66,6 +67,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             "ca-pub-4399806634859151"
           }
         />
+        <SpeedInsights />
       </body>
     </html>
   );
