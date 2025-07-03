@@ -47,7 +47,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="hi" className={`${gotu.className} ${amita.className}`}>
       <meta
         name="google-site-verification"
-        content="DQhbG4lgni-ppCVJeTTkMncrgR5mjN0rsp5teq0gGoY"
+        content="Iv3V2n4D34Iyalk6fyPSkuHD4GXAFo35cITzxlOZV3g"
       />
       <body className="relative bg-primary text-secondary">
         <BhagwanProvider>
