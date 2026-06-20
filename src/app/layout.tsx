@@ -6,14 +6,14 @@ import {
   GoogleAdSense,
   Header,
   ThemeToggle,
-} from "@/_components/layouts";
+} from "@/components/layouts";
 import "@/styles/globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Metadata } from "next";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { BhagwanProvider } from "./context/bhagwanContext";
+import { BhagwanProvider } from "@/context/bhagwanContext";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 // Google Fonts setup

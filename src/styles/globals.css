@@ -2,17 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
-
   color-scheme: light dark;
-
-  --primary:  light-dark(#ffffff,#000000);
-  --secondary: light-dark(#000000,#ffffff);
+  --primary: light-dark(#ffffff, #0b0b0b);
+  --secondary: light-dark(#000000, #f8f8f8);
+  --accent: #ff9933; /* Saffron color for spiritual feel */
   --tertiary: #9c9c9c;
-
   --font-amita: "Amita", sans-serif;
   --font-gotu: "Gotu", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply transition-colors duration-300;
+  background-image: radial-gradient(var(--tertiary) 0.5px, transparent 0.5px);
+  background-size: 30px 30px;
+  background-attachment: fixed;
+  opacity: 0.95;
 }
 
 html:not(.dark) {
@@ -21,5 +30,14 @@ html:not(.dark) {
 
 html.dark {
   color-scheme: dark;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}
+
+.skeleton-loader {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 

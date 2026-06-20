@@ -1,5 +1,5 @@
 import { getPosts } from "@/sanity/sanity.query";
-import { BhagwanType } from "@/type/index";
+import { BhagwanType } from "@/types/index";
 
 const siteUrl = process.env.SITE_URL || "https://dev-aarti.vercel.app";
 const defaultPriority = 0.8;

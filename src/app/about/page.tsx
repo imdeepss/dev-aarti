@@ -1,7 +1,7 @@
-import { Container } from "@/_components/layouts";
+import { Container } from "@/components/layouts";
 import Image from "next/image";
 import React from "react";
-import MeetTheTeam from "./_components";
+import MeetTheTeam from "@/components/about";
 
 const page = () => {
   return (

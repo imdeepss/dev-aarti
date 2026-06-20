@@ -1,11 +1,13 @@
-import { contactFormSchema } from "@/app/contact/schema/formSchema";
+import { contactFormSchema } from "@/lib/schemas/formSchema";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { z } from "zod";
+import { logger } from "@/lib/logger";
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
+    logger.info("Received contact form submission");
 
     const { name, email, message } = contactFormSchema.parse(body);
 
@@ -14,10 +16,10 @@ export async function POST(req: Request) {
       !process.env.EMAIL_PASS ||
       !process.env.RECEIVER_EMAIL
     ) {
-      console.error("❌ Missing environment variables");
+      logger.error("Missing environment variables for email");
       return NextResponse.json(
         { success: false, message: "Server email credentials missing" },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -49,29 +51,40 @@ export async function POST(req: Request) {
       text: `नमस्ते ${name},\n\nहमने आपका संदेश प्राप्त कर लिया है। हम जल्द ही आपसे संपर्क करेंगे।\n\nधन्यवाद!`,
     });
 
+    logger.info(
+      `Emails sent successfully to ${process.env.RECEIVER_EMAIL} and ${email}`,
+    );
+
     return NextResponse.json(
       { success: true, message: "Emails sent successfully!" },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
     if (error instanceof z.ZodError) {
+      logger.warn("Validation failed for contact form", {
+        errors: error.issues,
+      });
       return NextResponse.json(
         {
           success: false,
           message: "Invalid input",
-          errors: error.errors.map((e) => ({
+          errors: error.issues.map((e) => ({
             field: e.path.join("."),
             message: e.message,
           })),
         },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
-    console.error("❌ Email sending error:", error);
+    logger.error(
+      "Internal error during contact form submission",
+      undefined,
+      error as Error,
+    );
     return NextResponse.json(
       { success: false, message: "Internal server error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

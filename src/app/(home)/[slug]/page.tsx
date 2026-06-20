@@ -1,8 +1,8 @@
 import { getPostBySlug } from "@/sanity/sanity.query";
 import { notFound } from "next/navigation";
-import { ContentSection } from "./_components";
+import { ContentSection } from "@/components/aarti-detail";
 import type { Metadata, ResolvingMetadata } from "next";
-import { WhatsAppShareButton } from "@/_components/layouts";
+import { WhatsAppShareButton } from "@/components/layouts";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -11,7 +11,7 @@ type Props = {
 export async function generateMetadata(
   { params }: Props,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  _parent: ResolvingMetadata
+  _parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const resolvedParams = await params;
   const slug = resolvedParams.slug;

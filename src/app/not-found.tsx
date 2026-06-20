@@ -1,4 +1,4 @@
-import { Container } from "@/_components/layouts";
+import { Container } from "@/components/layouts";
 import Link from "next/link";
 
 export default function NotFound() {

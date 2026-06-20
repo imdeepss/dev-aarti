@@ -1,8 +1,11 @@
-import { Container } from "@/_components/layouts";
+import { Container } from "@/components/layouts";
 import Link from "next/link";
 import React from "react";
 
-const page = () => {
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://dev-aarti.vercel.app";
+
+const PoliciesPage = () => {
   return (
     <Container className="py-16 space-y-8">
       <div>
@@ -14,9 +17,9 @@ const page = () => {
         </div>
         <p>
           देव आरती संग्रह में, जो आरती है{" "}
-          <a href="https://dev-aarti.vercel.app" className="text-secondary">
-            https://dev-aarti.vercel.app
-          </a>{" "}
+          <Link href={siteUrl} className="text-secondary">
+            {siteUrl.replace(/^https?:\/\//, "")}
+          </Link>{" "}
           पर उपलब्ध है, हमारे आगंतुकों की गोपनीयता हमारी मुख्य प्राथमिकताओं में
           से एक है। यह गोपनीयता नीति दस्तावेज़ उस जानकारी के प्रकारों को शामिल
           करता है जो देव आरती संग्रह द्वारा एकत्रित और रिकॉर्ड की जाती हैं और हम
@@ -241,4 +244,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default PoliciesPage;

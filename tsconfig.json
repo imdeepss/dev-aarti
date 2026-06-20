@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -11,7 +15,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
       {
@@ -19,14 +23,37 @@
       }
     ],
     "paths": {
-      "@/_components/*": ["./src/app/(common)/_components/*"],
-      "@/type/*": ["./src/app/types/*"],
-      "@/hook/*": ["./src/app/hooks/*"],
-      "@/data/*": ["./src/app/(common)/data/*"],
-      "@/*": ["./src/*"],
-      "@/sanity/*": ["./sanity/*"]
+      "@/components/*": [
+        "./src/components/*"
+      ],
+      "@/types/*": [
+        "./src/types/*"
+      ],
+      "@/hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@/data/*": [
+        "./src/data/*"
+      ],
+      "@/context/*": [
+        "./src/context/*"
+      ],
+      "@/*": [
+        "./src/*"
+      ],
+      "@/sanity/*": [
+        "./sanity/*"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
