@@ -160,6 +160,8 @@ const ContentSection = ({ title, content, image }: PostType) => {
           </div>
         </div>
 
+
+
         {/* Related Cards (Outside the book page) */}
         {relatedCards.length > 0 && (
           <div className="mt-16 w-full">
@@ -176,6 +178,38 @@ const ContentSection = ({ title, content, image }: PostType) => {
           </div>
         )}
         
+        {/* Community & Reviews Placeholder */}
+        <div className="mt-16 bg-[#fdfbf7] dark:bg-[#1A1614] rounded-3xl p-8 border border-secondary/10">
+          <div className="flex items-center justify-between mb-8 border-b border-secondary/10 pb-4">
+            <h3 className="text-2xl font-bold text-secondary font-amita">भक्तों के विचार</h3>
+            <button className="px-4 py-2 bg-accent/10 text-accent-dark font-bold font-gotu rounded-lg hover:bg-accent hover:text-white transition-all">
+              विचार साझा करें
+            </button>
+          </div>
+          <div className="space-y-6">
+            <div className="flex gap-4">
+              <div className="h-12 w-12 rounded-full bg-secondary/20 flex-shrink-0" />
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-1">
+                  <h4 className="font-bold font-gotu text-secondary">राहुल शर्मा</h4>
+                  <span className="text-yellow-500 text-sm">★★★★★</span>
+                </div>
+                <p className="text-secondary/70 font-gotu text-sm">अद्भुत प्रस्तुति। प्रतिदिन पढ़ने से मन को बहुत शांति मिलती है।</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="h-12 w-12 rounded-full bg-secondary/20 flex-shrink-0" />
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-1">
+                  <h4 className="font-bold font-gotu text-secondary">प्रिया वर्मा</h4>
+                  <span className="text-yellow-500 text-sm">★★★★★</span>
+                </div>
+                <p className="text-secondary/70 font-gotu text-sm">ऑडियो फीचर बहुत अच्छा है। मैं इसे ध्यान के समय सुनती हूँ।</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </Container>
   );

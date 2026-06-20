@@ -3,3 +3,5 @@ export { default as AboutUs } from "./AboutUs";
 export { default as Contact } from "./Contact";
 export { default as Testimonial } from "./Testimonial";
 export { default as BhagwanList } from "./BhagwanList";
+export { default as FeaturedCategories } from "./FeaturedCategories";
+export { default as WisdomArticles } from "./WisdomArticles";
