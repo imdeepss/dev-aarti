@@ -14,74 +14,74 @@ const BhagwanCard = ({ title, slug, image, type }: BhagwanType) => {
 
   return (
     <>
-      <div className="cursor-pointer rounded-lg border border-secondary p-4 text-center duration-500 ease-in-out hover:scale-110 flex flex-col gap-1 justify-center items-center bg-primary">
-        <button onClick={handleModalToggle}>
+      <div 
+        className="group cursor-pointer rounded-2xl border border-secondary/10 p-5 text-center transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-xl hover:shadow-accent/20 flex flex-col gap-3 justify-center items-center glass-panel"
+        onClick={handleModalToggle}
+      >
+        <div className="relative overflow-hidden rounded-full p-1 border-2 border-transparent transition-colors duration-500 group-hover:border-accent/50">
           <Image
             src={image.image}
             alt={image.alt || title}
             width={200}
             height={200}
-            className="aspect-square"
+            className="aspect-square rounded-full object-cover transition-transform duration-700 group-hover:scale-110"
             loading="lazy"
           />
-        </button>
-        <h2 className="text-lg font-bold text-secondary font-gotu">{title}</h2>
+        </div>
+        <h2 className="text-xl font-bold text-secondary font-amita tracking-wide">{title}</h2>
       </div>
 
       <Dialog.Root open={isOpen} onOpenChange={setOpen}>
         <Dialog.Portal>
-          <Dialog.Overlay className="fixed inset-0 bg-secondary  opacity-50" />
-          <Dialog.Content className="fixed inset-0 flex items-center justify-center z-50 backdrop-blur-2xl md:px-0 px-5">
-            <div className="w-full max-w-xl bg-primary rounded-lg relative shadow-2xl md:px-0 px-5">
-              <div className="flex md:flex-row flex-col w-full p-5 gap-5">
-                <div className="md:w-2/5 w-full">
+          <Dialog.Overlay className="fixed inset-0 bg-black/40 backdrop-blur-md z-50 transition-all duration-300 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+          <Dialog.Content className="fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[600px] translate-x-[-50%] translate-y-[-50%] z-50 focus:outline-none">
+            <div className="relative w-full overflow-hidden rounded-3xl border border-secondary/20 shadow-2xl glass-panel animate-in fade-in zoom-in-95 duration-300">
+              
+              {/* Decorative top header in modal */}
+              <div className="absolute top-0 w-full h-32 bg-gradient-to-b from-accent/20 to-transparent -z-10" />
+
+              <div className="flex flex-col items-center p-8 text-center">
+                <div className="relative mb-6 rounded-full p-2 border-4 border-primary/50 shadow-lg bg-primary/20">
                   <Image
                     src={image.image}
                     alt={image.alt || title}
-                    width={200}
-                    height={200}
-                    className="h-full w-full object-cover"
+                    width={150}
+                    height={150}
+                    className="h-32 w-32 rounded-full object-cover shadow-inner"
                   />
                 </div>
-                <div className="md:w-3/5 w-full">
-                  {title && (
-                    <Dialog.Title className="text-xl font-bold mb-5">
+                
+                {title && (
+                  <>
+                    <Dialog.Title className="text-3xl font-bold text-secondary font-amita mb-2 drop-shadow-sm">
                       {title}
                     </Dialog.Title>
-                  )}
-                  <div className="flex flex-wrap items-center gap-4 w-full">
-                    {type.map((item) => {
-                      const formattedSlug = slug?.current?.toLowerCase();
-                      const formattedBookTypeName =
-                        item.bookTypeName.toLowerCase();
-
-                      const href = `/${formattedSlug}-${formattedBookTypeName}`;
-                      return (
-                        <Link
-                          href={href}
-                          key={item._id}
-                          className="group relative inline-block px-4 py-2 font-medium"
-                        >
-                          <span
-                            className={`duration-400 absolute inset-0 h-full w-full translate-x-1 translate-y-1 transform bg-secondary transition ease-out group-hover:-translate-x-0 group-hover:-translate-y-0`}
-                          ></span>
-                          <span
-                            className={`group-hover:bg-secondary-50 absolute inset-0 h-full w-full border border-secondary bg-primary`}
-                          ></span>
-                          <span
-                            className={`relative text-secondary text-base md:text-lg font-gotu`}
-                          >
-                            {item.bookTypeName}
-                          </span>{" "}
-                        </Link>
-                      );
-                    })}
-                  </div>
+                    <div className="h-1 w-16 bg-accent rounded-full mb-8 opacity-80 mx-auto" />
+                  </>
+                )}
+                
+                <div className="flex flex-wrap items-center justify-center gap-4 w-full px-4 pb-4">
+                  {type.map((item) => {
+                    const formattedSlug = slug?.current?.toLowerCase();
+                    const formattedBookTypeName = item.bookTypeName.toLowerCase();
+                    const href = `/${formattedSlug}-${formattedBookTypeName}`;
+                    
+                    return (
+                      <Link
+                        href={href}
+                        key={item._id}
+                        className="relative overflow-hidden rounded-full px-6 py-3 font-gotu text-lg font-medium text-primary bg-secondary transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-secondary/30 active:scale-95"
+                      >
+                        <span className="relative z-10">{item.bookTypeName}</span>
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
+              
               <Dialog.Close
                 aria-label="Close"
-                className="absolute right-2 top-2 p-2 cursor-pointer"
+                className="absolute right-4 top-4 rounded-full p-2 text-secondary/70 hover:bg-secondary/10 hover:text-secondary transition-colors focus:outline-none"
               >
                 <CloseIcon />
               </Dialog.Close>

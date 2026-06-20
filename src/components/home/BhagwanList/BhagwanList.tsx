@@ -21,7 +21,10 @@ const BhagwanList = () => {
     }
   }, [bhagwanList]);
 
+  const [activeFilter, setActiveFilter] = useState<string>("All");
+
   const filterAarti = (type: string) => {
+    setActiveFilter(type);
     if (type === "All") {
       searchData("");
     } else {
@@ -31,13 +34,14 @@ const BhagwanList = () => {
 
   return (
     <Container>
-      <div className="mb-8 flex justify-center flex-wrap items-center gap-4">
+      <div className="mb-12 flex justify-center flex-wrap items-center gap-4">
         {featuredData.map((button) => {
           return (
             <Button
               text={button.text}
               onClick={() => filterAarti(button.type)}
               key={button.id}
+              active={activeFilter === button.type}
             />
           );
         })}

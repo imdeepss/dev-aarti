@@ -4,10 +4,13 @@
 
 :root {
   color-scheme: light dark;
-  --primary: light-dark(#ffffff, #0b0b0b);
-  --secondary: light-dark(#000000, #f8f8f8);
+  --primary: light-dark(#fffaf0, #120e0a); /* Off-white / very dark brown */
+  --secondary: light-dark(#3a2e26, #f3e8dd); /* Dark brown / soft beige */
   --accent: #ff9933; /* Saffron color for spiritual feel */
+  --accent-dark: #cc7a29;
   --tertiary: #9c9c9c;
+  --glass-bg: light-dark(rgba(255, 255, 255, 0.7), rgba(20, 15, 10, 0.7));
+  --glass-border: light-dark(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1));
   --font-amita: "Amita", sans-serif;
   --font-gotu: "Gotu", sans-serif;
 }
@@ -17,11 +20,22 @@ html {
 }
 
 body {
-  @apply transition-colors duration-300;
-  background-image: radial-gradient(var(--tertiary) 0.5px, transparent 0.5px);
-  background-size: 30px 30px;
+  @apply transition-colors duration-500;
+  background: light-dark(
+    radial-gradient(circle at top, #fff3e0 0%, #fffaf0 100%),
+    radial-gradient(circle at top, #2a1f18 0%, #120e0a 100%)
+  );
   background-attachment: fixed;
-  opacity: 0.95;
+  min-height: 100vh;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
 
 html:not(.dark) {
