@@ -5,3 +5,8 @@ export { default as Testimonial } from "./Testimonial";
 export { default as BhagwanList } from "./BhagwanList";
 export { default as FeaturedCategories } from "./FeaturedCategories";
 export { default as WisdomArticles } from "./WisdomArticles";
+export { default as DailyPanchang } from "./DailyPanchang/DailyPanchang";
+export { default as SacredPlaces } from "./SacredPlaces/SacredPlaces";
+export { default as FamousTemples } from "./FamousTemples/FamousTemples";
+export { default as VedasPuranas } from "./VedasPuranas/VedasPuranas";
+export { default as DailyHoroscope } from "./DailyHoroscope/DailyHoroscope";

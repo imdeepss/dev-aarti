@@ -6,8 +6,8 @@ import useLockBodyScroll from "@/hooks/useLockBodyScroll";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Container from "../Container";
-import SearchInput from "../SearchInput";
 import Image from "next/image";
+import { DesktopNav } from "./MegaMenu";
 
 export default function Header() {
   const [collapseMenu, setCollapseMenu] = useState<boolean>(false);
@@ -62,13 +62,14 @@ export default function Header() {
               aria-label="Go to Home"
               className="flex items-center gap-3 group"
             >
-              <div className="relative p-1 rounded-full bg-secondary/5 border border-secondary/10 shadow-sm transition-transform duration-500 group-hover:rotate-[360deg] group-hover:shadow-accent/20">
+              <div className="relative p-1 rounded-full bg-gradient-to-tr from-accent/10 to-transparent border border-secondary/10 shadow-sm transition-all duration-500 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(255,153,51,0.3)]">
+                <div className="absolute inset-0 rounded-full bg-accent/20 opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-500" />
                 <Image
                   src="/images/logo.png"
                   alt="देव आरती संग्रह"
-                  width={40}
-                  height={40}
-                  className="rounded-full drop-shadow-md"
+                  width={42}
+                  height={42}
+                  className="rounded-full relative z-10 drop-shadow-md"
                 />
               </div>
               <span className="text-2xl font-amita font-bold hidden md:block text-secondary group-hover:text-accent-dark transition-all duration-300 leading-normal py-1">
@@ -96,34 +97,31 @@ export default function Header() {
                 </div>
               )}
 
-              {headerData.map((singleHeader) => (
-                <Link
-                  key={singleHeader.id}
-                  href={singleHeader.href}
-                  className={`relative font-gotu text-lg font-medium px-4 py-2 rounded-full transition-all duration-300
-                    ${collapseMenu ? 'w-full hover:bg-secondary/10 hover:translate-x-2' : 'hover:text-accent-dark group'}
-                  `}
-                  aria-label={singleHeader.text}
-                  onClick={handleLinkClick}
-                >
-                  <span className="relative z-10">{singleHeader.text}</span>
-                  {/* Desktop hover pill effect */}
-                  {!collapseMenu && (
-                    <span className="absolute inset-0 bg-secondary/5 rounded-full scale-50 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100 -z-10" />
-                  )}
-                </Link>
-              ))}
-              
-              <div className={`mt-auto lg:mt-0 ${collapseMenu ? 'w-full pt-6' : ''}`}>
-                <SearchInput />
+              {/* Desktop Navigation (Mega Menu) */}
+              <div className="hidden lg:block">
+                <DesktopNav />
               </div>
+
+              {/* Mobile Sidebar Navigation */}
+              <div className="lg:hidden flex flex-col gap-2 w-full mt-4">
+                {headerData.map((singleHeader) => (
+                  <Link
+                    key={singleHeader.id}
+                    href={singleHeader.href}
+                    className="relative font-gotu text-lg font-medium px-4 py-3 rounded-2xl transition-all duration-300 w-full hover:bg-secondary/10 hover:translate-x-2 text-secondary"
+                    aria-label={singleHeader.text}
+                    onClick={handleLinkClick}
+                  >
+                    <span className="relative z-10">{singleHeader.text}</span>
+                  </Link>
+                ))}
+              </div>
+              
+              {/* SearchInput removed as per request */}
             </nav>
 
             {/* Mobile Menu Button */}
             <div className="lg:hidden flex items-center gap-3 z-50">
-              <div className="hidden sm:block">
-                <SearchInput />
-              </div>
               <button
                 type="button"
                 onClick={handleMenuToggle}

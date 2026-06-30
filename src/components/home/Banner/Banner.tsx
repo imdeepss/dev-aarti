@@ -1,102 +1,92 @@
+"use client";
+
 import { Container } from "@/components/layouts";
-import Image from "next/image";
 import Link from "next/link";
-import { SearchInput } from "@/components/layouts"; // Assuming we can use or adapt this
+import { Search } from "lucide-react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
+const quickLinks = [
+  { text: "आरती संग्रह", icon: "🪔", href: "/aarti" },
+  { text: "चालीसा", icon: "📿", href: "/chalisa" },
+  { text: "स्तोत्र", icon: "📜", href: "/stotra" },
+  { text: "पंचांग", icon: "📅", href: "/panchang" },
+  { text: "राशिफल", icon: "⭐", href: "/rashifal" },
+  { text: "ज्योतिर्लिंग", icon: "🔱", href: "/jyotirlinga" },
+  { text: "मंदिर", icon: "🛕", href: "/temples" },
+  { text: "त्योहार", icon: "🎉", href: "/festivals" },
+];
 
 const Banner = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const router = useRouter();
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      router.push(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+    }
+  };
+
   return (
-    <div className="relative overflow-hidden pt-12 pb-16 md:pt-20 md:pb-24">
-      {/* Immersive Background */}
-      <div className="absolute inset-0 -z-20 h-full w-full bg-[#fdfbf7] dark:bg-[#1a120c]">
-        {/* Subtle mandala or texture pattern could go here */}
-        <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-accent/10 to-transparent dark:from-accent-dark/20" />
+    <div className="relative overflow-hidden pt-20 pb-24 md:pt-32 md:pb-36 min-h-[90vh] flex items-center justify-center bg-[#FDFBF7] dark:bg-[#110f0e]">
+      
+      {/* Immersive Premium Background */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none">
+        <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] dark:opacity-[0.02]" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/mandala.png")' }}></div>
+        <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[70%] bg-gradient-to-br from-accent/20 to-transparent rounded-full blur-[120px]" />
+        <div className="absolute top-[20%] -right-[10%] w-[40%] h-[60%] bg-gradient-to-tl from-orange-500/10 to-transparent rounded-full blur-[100px]" />
       </div>
 
-      {/* Decorative Orbs */}
-      <div className="absolute top-1/4 left-0 -z-10 h-96 w-96 -translate-x-1/2 rounded-full bg-accent/20 blur-[120px]" />
-      <div className="absolute bottom-0 right-0 -z-10 h-[500px] w-[500px] translate-x-1/3 rounded-full bg-secondary/10 blur-[150px]" />
+      <Container className="relative z-10 w-full">
+        <div className="flex flex-col items-center justify-center text-center max-w-5xl mx-auto">
+          
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent-dark font-gotu text-sm font-bold tracking-widest uppercase mb-8 animate-in slide-in-from-bottom-4 duration-700 fade-in">
+            <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
+            सनातन धर्म का सम्पूर्ण भक्ति पोर्टल
+          </span>
 
-      <Container className="relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-amita text-secondary tracking-tight mb-8 drop-shadow-sm animate-in slide-in-from-bottom-8 duration-700 fade-in delay-100 leading-[1.2]">
+            परम ज्ञान और <br />
+            <span className="bg-gradient-to-r from-accent to-orange-500 bg-clip-text text-transparent">आंतरिक शांति</span> का मार्ग
+          </h1>
 
-          {/* Left Column: Hero Content */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent-dark font-gotu text-sm font-semibold tracking-wide mb-6 animate-fade-in-up">
-              <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
-              डिजिटल आध्यात्मिक अभयारण्य
-            </span>
+          <p className="text-lg md:text-xl text-secondary/70 font-gotu max-w-3xl mb-12 leading-relaxed animate-in slide-in-from-bottom-8 duration-700 fade-in delay-200">
+            आरती, चालीसा, स्तोत्र, मंत्र, राशिफल, पंचांग, व्रत-त्योहार, 12 ज्योतिर्लिंग, 51 शक्ति पीठ, प्रसिद्ध मंदिर, पूजा विधि और सनातन धर्म की प्रामाणिक जानकारी — एक ही स्थान पर।
+          </p>
 
-            <h1 className="animate-fade-in-up [animation-delay:100ms] text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-secondary font-amita drop-shadow-sm mb-6">
-              परम ज्ञान और <br className="hidden sm:block" />
-              <span className="text-accent-dark leading-normal">आंतरिक शांति</span> का मार्ग
-            </h1>
-
-            <p className="animate-fade-in-up [animation-delay:200ms] text-lg sm:text-xl text-secondary/70 font-gotu leading-relaxed max-w-2xl mb-10">
-              वेद, उपनिषद, भगवद गीता, रामायण और हजारों आरतियों के सबसे बड़े और सबसे प्रामाणिक संग्रह में गोता लगाएँ। अपनी आध्यात्मिक यात्रा आज ही शुरू करें।
-            </p>
-
-            {/* Quick Actions / Global Search */}
-            <div className="animate-fade-in-up [animation-delay:300ms] w-full max-w-xl flex flex-col sm:flex-row gap-4">
-              <div className="relative flex-1">
-                <input
-                  type="text"
-                  placeholder="शास्त्र, आरती या श्लोक खोजें..."
-                  className="w-full h-14 pl-6 pr-12 rounded-full bg-white dark:bg-[#2A2118] border border-secondary/20 shadow-lg focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-transparent font-gotu text-secondary transition-all"
-                />
-                <button className="absolute right-3 top-1/2 -translate-y-1/2 h-10 w-10 flex items-center justify-center bg-accent text-white rounded-full hover:bg-accent-dark transition-colors shadow-md">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                </button>
+          {/* Premium Search Bar */}
+          <div className="w-full max-w-2xl relative mb-16 animate-in slide-in-from-bottom-8 duration-700 fade-in delay-300">
+            <div className="absolute inset-0 bg-accent/20 blur-xl rounded-full opacity-50" />
+            <form onSubmit={handleSearch} className="relative flex items-center w-full h-16 md:h-20 bg-white/80 dark:bg-[#1A1614]/80 backdrop-blur-xl border border-white/40 dark:border-white/10 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.08)] p-2">
+              <div className="pl-6 text-secondary/50">
+                <Search className="w-6 h-6" />
               </div>
-              <Link href="/explore" className="h-14 px-8 flex items-center justify-center rounded-full bg-secondary text-primary font-gotu font-bold hover:bg-secondary/90 hover:scale-105 transition-all duration-300 shadow-xl shadow-secondary/20 whitespace-nowrap">
-                अन्वेषण करें
-              </Link>
-            </div>
-
-            {/* Trust Badges / Stats */}
-            <div className="animate-fade-in-up [animation-delay:400ms] mt-10 flex items-center gap-6 text-sm font-gotu text-secondary/60">
-              <div className="flex -space-x-3">
-                <div className="h-10 w-10 rounded-full bg-accent/20 border-2 border-[#fdfbf7] flex items-center justify-center text-accent-dark font-bold">ॐ</div>
-                <div className="h-10 w-10 rounded-full bg-secondary/10 border-2 border-[#fdfbf7] flex items-center justify-center">📿</div>
-                <div className="h-10 w-10 rounded-full bg-accent/40 border-2 border-[#fdfbf7] flex items-center justify-center text-white">🕉️</div>
-              </div>
-              <div>
-                <span className="font-bold text-secondary">10,000+</span> शास्त्रों और श्लोकों का संग्रह
-              </div>
-            </div>
+              <input 
+                type="text" 
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="आरती, मंत्र, या मंदिर खोजें..." 
+                className="flex-1 h-full bg-transparent border-none outline-none px-4 font-gotu text-lg text-secondary placeholder:text-secondary/40"
+              />
+              <button type="submit" className="h-full px-8 bg-accent hover:bg-accent-dark text-white rounded-full font-bold font-gotu text-lg shadow-md transition-all duration-300 hover:scale-105 active:scale-95">
+                खोजें
+              </button>
+            </form>
           </div>
 
-          {/* Right Column: Daily Wisdom Card */}
-          <div className="lg:col-span-5 relative animate-in fade-in zoom-in duration-1000 [animation-delay:300ms]">
-            <div className="relative glass-panel bg-white/70 dark:bg-[#1A1614]/80 p-8 sm:p-10 rounded-3xl shadow-2xl border border-white/50 dark:border-white/10 backdrop-blur-2xl">
-
-              <div className="absolute -top-6 -right-6 h-24 w-24 bg-gradient-to-br from-accent to-accent-dark rounded-full blur-[30px] opacity-50 z-0" />
-
-              <div className="relative z-10 flex flex-col h-full">
-                <div className="flex items-center justify-between mb-8 pb-4 border-b border-secondary/10">
-                  <h3 className="text-xl font-bold font-amita text-accent-dark flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
-                    आज का श्लोक
-                  </h3>
-                  <span className="text-sm font-gotu text-secondary/50 bg-secondary/5 px-3 py-1 rounded-full">श्रीमद्भगवद्गीता (2.47)</span>
-                </div>
-
-                <div className="flex-1 flex flex-col justify-center">
-                  <p className="text-2xl sm:text-3xl font-amita text-secondary text-center leading-relaxed mb-6 font-semibold">
-                    कर्मण्येवाधिकारस्ते <br /> मा फलेषु कदाचन।
-                  </p>
-                  <p className="text-base text-secondary/70 font-gotu text-center italic px-4">
-                    "कर्म करने में ही तुम्हारा अधिकार है, उसके फलों में कभी नहीं।"
-                  </p>
-                </div>
-
-                <div className="mt-8 pt-4 border-t border-secondary/10 flex justify-end items-center">
-                  <Link href="/gita/chapter-2/verse-47" className="text-sm font-gotu font-bold text-accent hover:text-accent-dark transition-colors flex items-center gap-1">
-                    विस्तार से पढ़ें
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                  </Link>
-                </div>
-              </div>
-            </div>
+          {/* Quick Navigation Chips */}
+          <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 animate-in slide-in-from-bottom-8 duration-700 fade-in delay-500">
+            {quickLinks.map((link, idx) => (
+              <Link 
+                key={idx} 
+                href={link.href}
+                className="flex items-center gap-2 px-5 py-3 bg-white/60 dark:bg-white/5 hover:bg-white dark:hover:bg-white/10 border border-secondary/10 hover:border-accent/50 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 group backdrop-blur-md"
+              >
+                <span className="text-xl group-hover:scale-110 transition-transform duration-300">{link.icon}</span>
+                <span className="font-gotu font-bold text-secondary">{link.text}</span>
+              </Link>
+            ))}
           </div>
 
         </div>

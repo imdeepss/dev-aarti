@@ -1,78 +1,57 @@
+"use client";
+
 import { Container } from "@/components/layouts";
 import Link from "next/link";
-import Image from "next/image";
+import { BookOpen, Flame, Sparkles, Music, Calendar, Moon, Sun, MapPin, Compass, Star, Heart, ScrollText, Users, Library, Map, Crown } from "lucide-react";
 
 const categories = [
-  {
-    id: 1,
-    title: "श्रीमद्भगवद्गीता",
-    description: "जीवन के हर संघर्ष का समाधान",
-    image: "/images/gita.jpg", // placeholder
-    link: "/gita",
-    color: "from-orange-500/20 to-orange-500/5",
-    border: "border-orange-500/20"
-  },
-  {
-    id: 2,
-    title: "रामायण",
-    description: "मर्यादा पुरुषोत्तम की जीवन गाथा",
-    image: "/images/ramayana.jpg", // placeholder
-    link: "/ramayana",
-    color: "from-red-500/20 to-red-500/5",
-    border: "border-red-500/20"
-  },
-  {
-    id: 3,
-    title: "वेद और उपनिषद",
-    description: "सनातन धर्म का मूल ज्ञान",
-    image: "/images/vedas.jpg", // placeholder
-    link: "/vedas",
-    color: "from-amber-500/20 to-amber-500/5",
-    border: "border-amber-500/20"
-  },
-  {
-    id: 4,
-    title: "दैनिक आरतियाँ",
-    description: "भक्ति और शांति के लिए",
-    image: "/images/aarti.jpg", // placeholder
-    link: "/aartis",
-    color: "from-yellow-500/20 to-yellow-500/5",
-    border: "border-yellow-500/20"
-  }
+  { name: "आरती संग्रह", icon: Flame, href: "/aarti", color: "text-orange-500", bg: "bg-orange-500/10" },
+  { name: "चालीसा", icon: BookOpen, href: "/chalisa", color: "text-red-500", bg: "bg-red-500/10" },
+  { name: "स्तोत्र", icon: ScrollText, href: "/stotra", color: "text-amber-500", bg: "bg-amber-500/10" },
+  { name: "मंत्र", icon: Sparkles, href: "/mantra", color: "text-indigo-500", bg: "bg-indigo-500/10" },
+  { name: "भजन", icon: Music, href: "/bhajans", color: "text-pink-500", bg: "bg-pink-500/10" },
+  { name: "व्रत", icon: Moon, href: "/vrat", color: "text-purple-500", bg: "bg-purple-500/10" },
+  { name: "पंचांग", icon: Calendar, href: "/panchang", color: "text-emerald-500", bg: "bg-emerald-500/10" },
+  { name: "त्योहार", icon: Star, href: "/festivals", color: "text-yellow-500", bg: "bg-yellow-500/10" },
+  { name: "राशिफल", icon: Sun, href: "/rashifal", color: "text-blue-500", bg: "bg-blue-500/10" },
+  { name: "मंदिर", icon: Compass, href: "/temples", color: "text-rose-500", bg: "bg-rose-500/10" },
+  { name: "ज्योतिर्लिंग", icon: MapPin, href: "/jyotirlinga", color: "text-cyan-500", bg: "bg-cyan-500/10" },
+  { name: "शक्ति पीठ", icon: Heart, href: "/shakti-peeth", color: "text-fuchsia-500", bg: "bg-fuchsia-500/10" },
+  { name: "108 नाम", icon: Crown, href: "/108-names", color: "text-violet-500", bg: "bg-violet-500/10" },
+  { name: "देवी-देवता", icon: Users, href: "/gods", color: "text-teal-500", bg: "bg-teal-500/10" },
+  { name: "धर्म ग्रंथ", icon: Library, href: "/scriptures", color: "text-amber-700", bg: "bg-amber-700/10" },
+  { name: "तीर्थ यात्रा", icon: Map, href: "/pilgrimage", color: "text-lime-600", bg: "bg-lime-600/10" },
 ];
 
 const FeaturedCategories = () => {
   return (
-    <section className="py-20 relative">
+    <section className="py-16 md:py-24 relative bg-[#FDFBF7] dark:bg-[#110f0e]">
       <Container>
-        <div className="flex justify-between items-end mb-12">
-          <div>
-            <span className="text-accent font-gotu text-sm font-bold tracking-wider uppercase mb-2 block">शास्त्र और ग्रंथ</span>
-            <h2 className="text-3xl md:text-5xl font-bold font-amita text-secondary drop-shadow-sm">प्रमुख श्रेणियाँ</h2>
+        <div className="flex flex-col items-center mb-16">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-px w-12 bg-accent/30" />
+            <span className="text-accent font-gotu tracking-widest text-sm font-bold uppercase">अन्वेषण करें</span>
+            <div className="h-px w-12 bg-accent/30" />
           </div>
-          <Link href="/categories" className="text-accent hover:text-accent-dark font-gotu font-medium transition-colors flex items-center gap-2">
-            सभी देखें
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-          </Link>
+          <h2 className="text-3xl md:text-5xl font-bold font-amita text-secondary text-center mb-6">आध्यात्मिक श्रेणियाँ</h2>
+          <p className="text-secondary/70 font-gotu text-center max-w-2xl text-lg">
+            सनातन धर्म के असीमित ज्ञान और भक्ति रस को अपनी पसंदीदा श्रेणी में खोजें।
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {categories.map((cat) => (
-            <Link href={cat.link} key={cat.id} className={`group relative rounded-3xl overflow-hidden glass-panel border ${cat.border} transition-all duration-500 hover:-translate-y-2 hover:shadow-xl`}>
-              <div className={`absolute inset-0 bg-gradient-to-b ${cat.color} opacity-50 z-0`} />
-              
-              <div className="relative z-10 p-8 h-full flex flex-col justify-between min-h-[240px]">
-                <div>
-                  <h3 className="text-2xl font-bold font-amita text-secondary mb-2 group-hover:text-accent-dark transition-colors">{cat.title}</h3>
-                  <p className="text-secondary/70 font-gotu text-sm">{cat.description}</p>
-                </div>
-                
-                <div className="mt-8 flex justify-end">
-                  <div className="h-12 w-12 rounded-full bg-white/50 backdrop-blur-sm flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all shadow-sm">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                  </div>
-                </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 md:gap-6">
+          {categories.map((cat, idx) => (
+            <Link 
+              href={cat.href} 
+              key={idx}
+              className="group flex flex-col items-center justify-center p-6 bg-white dark:bg-[#1A1614] rounded-3xl border border-secondary/5 hover:border-accent/30 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1"
+            >
+              <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3 ${cat.bg} ${cat.color}`}>
+                <cat.icon className="w-7 h-7" strokeWidth={1.5} />
               </div>
+              <span className="font-gotu font-bold text-secondary group-hover:text-accent transition-colors text-center text-sm md:text-base">
+                {cat.name}
+              </span>
             </Link>
           ))}
         </div>
