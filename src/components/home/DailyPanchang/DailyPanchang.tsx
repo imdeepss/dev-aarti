@@ -87,7 +87,7 @@ const DailyPanchang = () => {
                 <div>
                   <h4 className="font-bold text-secondary font-amita text-lg mb-1">आज की पूजा अनुशंसा</h4>
                   <p className="text-sm text-secondary/70 font-gotu leading-relaxed">
-                    एकादशी के पावन अवसर पर भगवान विष्णु की आराधना करें। <strong>"ॐ नमो भगवते वासुदेवाय"</strong> मंत्र का 108 बार जाप करना अत्यंत शुभ फलदायी होगा।
+                    एकादशी के पावन अवसर पर भगवान विष्णु की आराधना करें। <strong>&ldquo;ॐ नमो भगवते वासुदेवाय&rdquo;</strong> मंत्र का 108 बार जाप करना अत्यंत शुभ फलदायी होगा।
                   </p>
                 </div>
               </div>

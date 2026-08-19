@@ -13,13 +13,6 @@ const BhagwanList = () => {
   const { bhagwanList, searchData = () => {} } = useContext(BhagwanContext) || {
     bhagwanList: [],
   };
-  const [data, setData] = useState<BhagwanType[] | null>(bhagwanList);
-
-  useEffect(() => {
-    if (bhagwanList) {
-      setData(bhagwanList);
-    }
-  }, [bhagwanList]);
 
   const [activeFilter, setActiveFilter] = useState<string>("All");
 
@@ -55,8 +48,8 @@ const BhagwanList = () => {
         </div>
 
         <div className="grid w-full grid-cols-2 gap-5 md:grid-cols-4 lg:grid-cols-6">
-          {data
-            ? data?.map((item: BhagwanType) => {
+          {bhagwanList
+            ? bhagwanList.map((item: BhagwanType) => {
                 return <BhagwanCard {...item} key={item._id} />;
               })
             : Array.from({ length: 12 }, (_, index) => {
